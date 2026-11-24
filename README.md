@@ -14,6 +14,8 @@ Open `http://127.0.0.1:8767`. Check desktop and mobile layouts, keyboard focus, 
 
 The supplied original 6000 × 2000 banner is retained in `assets/` for social previews. The page itself uses native text and inline vector icons. Lucide's database and orbit icons retain the [upstream license notices](assets/LUCIDE-LICENSE.txt).
 
+The header and footer use [`assets/ltm-logo-monochrome.svg`](assets/ltm-logo-monochrome.svg), a vector interpretation of the supplied brand sheet's monochrome logo: three overlapping rounded tiles with white separation lines and a rounded lowercase `ltm` wordmark, in a single navy ink. [`favicon.svg`](favicon.svg) uses the same tile geometry. Both remain sharp at any resolution, and CSS preserves the lockup's proportions. Keep logo edits in these SVG sources; the full-color social-preview banner is a separate supplied asset.
+
 ## GitHub Pages
 
 Repository: `LateralThinkingMachine/lateralthinkingmachine.github.io`.

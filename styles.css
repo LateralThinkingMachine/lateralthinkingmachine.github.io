@@ -28,7 +28,7 @@ figure, p, h1, h2, h3 { margin: 0; }
 
 .site-header { min-height: 96px; display: flex; align-items: center; justify-content: space-between; gap: 2rem; border-bottom: 1px solid var(--line); }
 .brand { display: inline-flex; align-items: center; gap: 1.3rem; }
-.wordmark { font-size: 2.45rem; line-height: 1; font-weight: 750; letter-spacing: -.09em; }
+.brand-logo { display: block; width: 112px; height: auto; flex-shrink: 0; }
 .brand-name { font-size: .875rem; letter-spacing: -.01em; }
 .site-header nav { display: flex; align-items: center; gap: 2rem; font-size: .875rem; }
 .site-header nav a { padding-block: .6rem; }
@@ -82,7 +82,7 @@ h2 { font-size: clamp(1.9rem, 3.2vw, 2.5rem); line-height: 1.2; font-weight: 550
 .follow .button { flex-shrink: 0; }
 .site-footer { display: flex; align-items: center; gap: 24px; border-top: 1px solid var(--line); min-height: 104px; font-size: .75rem; color: var(--muted); }
 .footer-brand { color: var(--ink); }
-.footer-brand .wordmark { font-size: 1.8rem; }
+.footer-logo { display: block; width: 88px; height: auto; }
 .site-footer > a:last-child { margin-left: auto; font-size: .875rem; }
 
 .not-found { min-height: calc(100vh - 201px); display: flex; flex-direction: column; align-items: flex-start; justify-content: center; padding-block: 80px; }
@@ -103,7 +103,7 @@ h2 { font-size: clamp(1.9rem, 3.2vw, 2.5rem); line-height: 1.2; font-weight: 550
 @media (max-width: 740px) {
   .wrap { width: calc(100% - 40px); }
   .site-header { min-height: 80px; gap: 24px; }
-  .wordmark { font-size: 2.2rem; }
+  .brand-logo { width: 104px; }
   .site-header nav { gap: 20px; font-size: .875rem; }
   .hero { grid-template-columns: 1fr; gap: 56px; padding-block: 64px; }
   h1 { font-size: clamp(2.9rem, 8.4vw, 4rem); max-width: 14ch; }

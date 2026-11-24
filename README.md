@@ -22,9 +22,9 @@ The header and footer use [`assets/ltm-logo-monochrome.svg`](assets/ltm-logo-mon
 
 ## Rotating headline
 
-[`headline.js`](headline.js) alternates the two hero messages after a six-second reading interval, fading out and then in over 240 ms each so letters never overlap. Both messages occupy the same CSS grid cell so the taller phrase reserves space at every screen size. The heading has one stable accessible text containing both messages; changes are not announced repeatedly to screen readers.
+[`headline.js`](headline.js) cycles through three hero messages: “Your agents build expertise as they work,” “Help agents communicate with other agents,” and “No more ‘Handover’ documents.” Each has a six-second reading interval, fading out and then in over 240 ms each so letters never overlap. All messages occupy the same CSS grid cell so the tallest phrase reserves space at every screen size. The heading has one stable accessible text containing all three messages; changes are not announced repeatedly to screen readers.
 
-There is no visible playback control. Rotation pauses while a mouse or pen hovers over the headline or keyboard focus is within the hero copy. Offscreen and hidden-page states also suspend the timer; returning starts a fresh six-second reading interval. Reduced-motion preferences keep the first headline static. Without JavaScript, the first headline remains visible. Check both messages at desktop and mobile widths and verify automatic pause/resume before publishing.
+There is no visible playback control. Rotation pauses while a mouse or pen hovers over the headline or keyboard focus is within the hero copy. Offscreen and hidden-page states also suspend the timer; returning starts a fresh six-second reading interval. Reduced-motion preferences keep the first headline static. Without JavaScript, the first headline remains visible. Check all messages at desktop and mobile widths and verify automatic pause/resume before publishing.
 
 ## Enny mascot
 

@@ -1,6 +1,6 @@
 # Lateral Thinking Machines
 
-The public landing page for Lateral Thinking Machines, AtoposDB, and Enny. A small static website hosted on GitHub Pages, with no build step, external fonts, analytics, or third-party scripts.
+The public landing page for Lateral Thinking Machines, AtoposDB, and Enny. A small static website hosted on GitHub Pages, with no build step, external fonts, analytics, or third-party scripts. The only client-side script is Enny's optional cursor response.
 
 The page leads with AtoposDB's product promise: agents build expertise as they work. Supporting copy explains continuity across sessions, channels, and providers; evidence, decisions, and corrections; and scoped knowledge reuse. The technical description identifies the native temporal graph database. Engine, integrated components, and collaborative workspace are stated as development directions, not released offerings. Keep the hero, illustrative evidence-to-correction example, product copy, and search/social metadata consistent with this positioning.
 
@@ -17,6 +17,14 @@ Open `http://127.0.0.1:8767`. Check desktop and mobile layouts, keyboard focus, 
 The supplied original 6000 × 2000 banner is retained in `assets/` for social previews. The page itself uses native text and inline vector icons. Lucide's database and orbit icons retain the [upstream license notices](assets/LUCIDE-LICENSE.txt).
 
 The header and footer use [`assets/ltm-logo-monochrome.svg`](assets/ltm-logo-monochrome.svg), a vector interpretation of the supplied brand sheet's monochrome logo: three overlapping rounded tiles with white separation lines and a rounded lowercase `ltm` wordmark, in a single navy ink. [`favicon.svg`](favicon.svg) uses the same tile geometry. Both remain sharp at any resolution, and CSS preserves the lockup's proportions. Keep logo edits in these SVG sources; the full-color social-preview banner is a separate supplied asset.
+
+## Enny mascot
+
+[`assets/enny.png`](assets/enny.png) is the supplied transparent artwork, copied without alteration. The hero displays it in normal document flow above the illustrative example. It is decorative, takes no focus, and cannot cover or intercept controls. Its SVG viewBox removes transparent padding without modifying the source image.
+
+[`enny.js`](enny.js) gives both inner eye details one shared gaze direction. Fixed SVG clips preserve the eye outlines and the entire body stays still. Travel is capped to an ellipse of five horizontal and three vertical SVG units (about 1.05 × 0.63 screen pixels at the desktop size), with brief easing and no idle animation loop. No eye or body rotation is used. Mouse/pen movement is supported only with a fine, hover-capable pointer; touch, reduced motion, offscreen, and hidden-page states retain the static artwork. Leaving the page or blurring the window restores a neutral gaze. Without JavaScript, the original artwork remains visible.
+
+Run `node --test tests/enny.test.cjs` for the focused interaction checks. For visual verification, move the pointer across the hero and then outside the page, confirm the body stays anchored, and check both the desktop and mobile layouts.
 
 ## GitHub Pages
 

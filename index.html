@@ -20,6 +20,7 @@
     <meta name="twitter:image" content="https://lateralthinkingmachines.ai/assets/ltm-banner-6000x2000.png">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="stylesheet" href="/styles.css">
+    <script src="/enny.js" defer></script>
   </head>
   <body id="top">
     <a class="skip-link" href="#main">Skip to content</a>
@@ -47,7 +48,32 @@
           </div>
         </div>
 
-        <figure class="context-map" aria-labelledby="context-caption">
+        <div class="hero-visual">
+          <div class="enny-mascot" data-enny aria-hidden="true">
+            <svg viewBox="112 113 800 797" width="800" height="797" focusable="false">
+              <defs>
+                <linearGradient id="enny-eye-shade" x1="0" y1="507" x2="0" y2="591" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#2b0d08"/>
+                  <stop offset=".55" stop-color="#351005"/>
+                  <stop offset="1" stop-color="#4d1906"/>
+                </linearGradient>
+                <clipPath id="enny-eye-windows">
+                  <path d="M410 506h23v15h12v57h-11v12h-28v-12h-10v-57h14Z"/>
+                  <path d="M625 506h20v15h14v57h-12v12h-25v-12h-11v-57h14Z"/>
+                </clipPath>
+              </defs>
+              <image href="/assets/enny.png" width="1024" height="1024"/>
+              <!-- Fixed eye windows preserve Enny's silhouette; only their inner details move. -->
+              <g class="enny-eye-layer" clip-path="url(#enny-eye-windows)">
+                <path fill="url(#enny-eye-shade)" d="M395 505h51v87h-51ZM610 505h50v87h-50Z"/>
+                <g data-enny-gaze>
+                  <path fill="#280c07" d="M408 517h25v36h-25ZM623 517h24v36h-24Z"/>
+                  <path fill="#fffaf5" shape-rendering="crispEdges" d="M410 521h21v16h-21ZM625 521h20v16h-20Z"/>
+                </g>
+              </g>
+            </svg>
+          </div>
+          <figure class="context-map" aria-labelledby="context-caption">
           <figcaption id="context-caption">Illustrative example <span>Launch review</span></figcaption>
           <ol class="context-flow">
             <li>
@@ -70,7 +96,8 @@
             </li>
           </ol>
           <p class="context-note">Keep the original decision and the evidence that changed it.</p>
-        </figure>
+          </figure>
+        </div>
       </section>
 
       <section class="philosophy wrap section-rule" id="why-memory" aria-labelledby="why-title">

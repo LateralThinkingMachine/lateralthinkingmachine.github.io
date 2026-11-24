@@ -22,7 +22,7 @@ class Events {
   }
 }
 
-function setup({ fine = true, reduced = false, missingElement = false, missingObserver = false } = {}) {
+function setup({ fine = true, reduced = false, missingElement = false, missingBody = false, missingObserver = false } = {}) {
   const window = new Events();
   const document = new Events();
   const pointerMedia = Object.assign(new Events(), { matches: fine });
@@ -30,6 +30,8 @@ function setup({ fine = true, reduced = false, missingElement = false, missingOb
   const attributes = new Map();
   const gazeAttributes = new Map();
   const writes = [];
+  const bodyWrites = [];
+  let bodyTransform;
   let rect = { left: 100, top: 100, width: 200, height: 200 };
   let rectReads = 0;
   let observer;
@@ -40,11 +42,20 @@ function setup({ fine = true, reduced = false, missingElement = false, missingOb
     isConnected: true,
     setAttribute(name, value) { gazeAttributes.set(name, value); writes.push([name, value]); }
   };
+  const body = {
+    isConnected: true,
+    style: {
+      get transform() { return bodyTransform; },
+      set transform(value) { bodyTransform = value; bodyWrites.push(value); }
+    }
+  };
   const enny = {
     isConnected: true,
+    style: Object.freeze({ transform: "" }),
     querySelector(selector) {
-      assert.equal(selector, "[data-enny-gaze]");
-      return gaze;
+      if (selector === "[data-enny-gaze]") return gaze;
+      if (selector === "[data-enny-body]") return missingBody ? null : body;
+      assert.fail(`Unexpected selector: ${selector}`);
     },
     getBoundingClientRect() { rectReads++; return { ...rect }; },
     setAttribute(name, value) { attributes.set(name, value); },
@@ -94,23 +105,31 @@ function setup({ fine = true, reduced = false, missingElement = false, missingOb
     assert.ok(match, "only a translation is applied to the shared gaze group");
     return match.slice(1).map(Number);
   };
+  const bodyPosition = () => {
+    const value = body.style.transform || "translate(0px, 0px) rotate(0deg)";
+    const match = /^translate\((-?[\d.]+)px,\s*(-?[\d.]+)px\) rotate\((-?[\d.]+)deg\)$/.exec(value);
+    assert.ok(match, "body sway uses pixel translation and a degree rotation");
+    return match.slice(1).map(Number);
+  };
   const move = (x, y, pointerType = "mouse") =>
     document.emit("pointermove", { clientX: x, clientY: y, pointerType });
   const show = visible => observer.show(visible);
   return {
-    window, document, pointerMedia, motionMedia, enny, gaze, observer, attributes, writes,
-    frames, frame, settle, position, move, show,
+    window, document, pointerMedia, motionMedia, enny, gaze, body, observer, attributes, writes, bodyWrites,
+    frames, frame, settle, position, bodyPosition, move, show,
     rectReads: () => rectReads,
     setRect: next => { rect = { ...rect, ...next }; }
   };
 }
 
-test("points toward the pointer, clamps to the ellipse, and moves one shared group", () => {
+test("points eyes and body toward the pointer within their bounds, leaving the wrapper stationary", () => {
   const h = setup();
   h.show(true);
   h.move(10000, 209.2);
   h.settle();
   assert.deepEqual(h.position(), [5, 0]);
+  assert.deepEqual(h.bodyPosition(), [4, 0, 7]);
+  assert.equal(h.enny.style.transform, "");
   assert.ok(h.attributes.has("data-enny-tracking"));
   assert.deepEqual([...h.attributes.keys()], ["data-enny-tracking"]);
   assert.ok(h.writes.every(([name]) => name === "transform"));
@@ -121,6 +140,17 @@ test("points toward the pointer, clamps to the ellipse, and moves one shared gro
   assert.ok(x < 0 && y < 0);
   assert.ok((x / 5) ** 2 + (y / 3) ** 2 <= 1.001);
   assert.ok(Math.abs(x) < 5 && Math.abs(y) < 3);
+  const [bodyX, bodyY, rotation] = h.bodyPosition();
+  assert.ok(bodyX < 0 && bodyY < 0 && rotation < 0);
+  assert.ok((bodyX / 4) ** 2 + (bodyY / 2.5) ** 2 <= 1.001);
+  assert.ok(Math.abs(rotation) <= 7);
+  assert.ok(Math.abs(rotation / 7 - bodyX / 4) < 0.001);
+  assert.equal(h.enny.style.transform, "");
+
+  h.move(203.8, 10000);
+  h.settle();
+  assert.deepEqual(h.position(), [0, 3]);
+  assert.deepEqual(h.bodyPosition(), [0, 2.5, 0]);
 });
 
 test("uses the face center and eases to the target in about 100 ms", () => {
@@ -129,6 +159,7 @@ test("uses the face center and eases to the target in about 100 ms", () => {
   h.move(203.8, 209.2);
   h.frame();
   assert.deepEqual(h.position(), [0, 0]);
+  assert.deepEqual(h.bodyPosition(), [0, 0, 0]);
   assert.equal(h.frames.size, 0);
   h.move(10000, 209.2);
   h.frame();
@@ -136,8 +167,13 @@ test("uses the face center and eases to the target in about 100 ms", () => {
   h.frame(50);
   const midpoint = h.position()[0];
   assert.ok(midpoint > 0 && midpoint < 5);
+  const [bodyX, bodyY, rotation] = h.bodyPosition();
+  assert.ok(Math.abs(bodyX / 4 - midpoint / 5) < 0.001);
+  assert.ok(Math.abs(rotation / 7 - midpoint / 5) < 0.001);
+  assert.equal(bodyY, 0);
   h.frame(50);
   assert.deepEqual(h.position(), [5, 0]);
+  assert.deepEqual(h.bodyPosition(), [4, 0, 7]);
   assert.equal(h.frames.size, 0);
 });
 
@@ -150,8 +186,10 @@ test("coalesces pointer events and never runs an idle RAF loop", () => {
   h.settle();
   assert.equal(h.rectReads(), 1);
   const writes = h.writes.length;
+  const bodyWrites = h.bodyWrites.length;
   h.frame(10000);
   assert.equal(h.writes.length, writes);
+  assert.equal(h.bodyWrites.length, bodyWrites);
   h.move(449, 210);
   h.frame();
   assert.equal(h.frames.size, 0);
@@ -188,6 +226,7 @@ test("ignores touch, coarse pointers, and reduced-motion preferences", () => {
     h.move(500, 200, Object.keys(options).length ? "mouse" : "touch");
     assert.equal(h.frames.size, 0);
     assert.equal(h.attributes.has("data-enny-tracking"), false);
+    assert.deepEqual(h.bodyPosition(), [0, 0, 0]);
   }
 });
 
@@ -197,10 +236,14 @@ test("resets immediately when media preferences disable tracking", () => {
     h.show(true);
     h.move(500, 200);
     h.frame();
+    h.frame();
+    assert.notDeepEqual(h.bodyPosition(), [0, 0, 0]);
     const media = kind === "pointer" ? h.pointerMedia : h.motionMedia;
     media.matches = kind === "motion";
     media.emit("change");
     assert.deepEqual(h.position(), [0, 0]);
+    assert.deepEqual(h.bodyPosition(), [0, 0, 0]);
+    assert.equal(h.body.style.transform, "translate(0px, 0px) rotate(0deg)");
     assert.equal(h.frames.size, 0);
     assert.equal(h.attributes.has("data-enny-tracking"), false);
   }
@@ -221,8 +264,11 @@ test("offscreen, hidden, blurred, and document-exit states reset tracking", () =
     h.frame();
     h.frame();
     assert.notDeepEqual(h.position(), [0, 0]);
+    assert.notDeepEqual(h.bodyPosition(), [0, 0, 0]);
     disable(h);
     assert.deepEqual(h.position(), [0, 0]);
+    assert.deepEqual(h.bodyPosition(), [0, 0, 0]);
+    assert.equal(h.body.style.transform, "translate(0px, 0px) rotate(0deg)");
     assert.equal(h.frames.size, 0);
     assert.equal(h.attributes.has("data-enny-tracking"), false);
   }
@@ -239,12 +285,14 @@ test("scroll and resize recompute bounds while retaining the stationary pointer"
   h.move(303.8, 209.2);
   h.settle();
   assert.deepEqual(h.position(), [2.5, 0]);
+  assert.deepEqual(h.bodyPosition(), [2, 0, 3.5]);
   h.setRect({ left: 300 });
   h.window.emit("scroll");
   h.window.emit("scroll");
   assert.equal(h.frames.size, 1);
   h.settle();
   assert.deepEqual(h.position(), [-2.5, 0]);
+  assert.deepEqual(h.bodyPosition(), [-2, 0, -3.5]);
   assert.equal(h.rectReads(), 2);
   h.setRect({ left: 100, width: 400 });
   h.window.emit("resize");
@@ -263,6 +311,7 @@ test("only resumes from disabled states after a new eligible pointer event", () 
   h.show(true);
   assert.equal(h.frames.size, 0);
   assert.equal(h.attributes.has("data-enny-tracking"), false);
+  assert.deepEqual(h.bodyPosition(), [0, 0, 0]);
   h.window.emit("blur");
   h.move(500, 300);
   assert.equal(h.frames.size, 0);
@@ -272,26 +321,37 @@ test("only resumes from disabled states after a new eligible pointer event", () 
   assert.ok(h.attributes.has("data-enny-tracking"));
 });
 
-test("cleans up listeners, observation, and scheduled work when leaving the page", () => {
-  const h = setup();
-  h.show(true);
-  h.move(500, 300);
-  h.window.emit("pagehide", { persisted: false });
-  assert.equal(h.frames.size, 0);
-  assert.equal(h.observer.disconnected, true);
-  for (const target of [h.window, h.document, h.pointerMedia, h.motionMedia]) {
-    assert.equal(target.listenerCount(), 0);
+test("cleans up when leaving the page or disconnecting the body artwork", () => {
+  for (const leave of [
+    h => h.window.emit("pagehide", { persisted: false }),
+    h => { h.body.isConnected = false; h.frame(); }
+  ]) {
+    const h = setup();
+    h.show(true);
+    h.move(500, 300);
+    h.frame();
+    h.frame();
+    assert.notDeepEqual(h.bodyPosition(), [0, 0, 0]);
+    leave(h);
+    assert.equal(h.frames.size, 0);
+    assert.equal(h.observer.disconnected, true);
+    for (const target of [h.window, h.document, h.pointerMedia, h.motionMedia]) {
+      assert.equal(target.listenerCount(), 0);
+    }
+    assert.equal(h.attributes.has("data-enny-tracking"), false);
+    assert.deepEqual(h.position(), [0, 0]);
+    assert.deepEqual(h.bodyPosition(), [0, 0, 0]);
   }
-  assert.equal(h.attributes.has("data-enny-tracking"), false);
 });
 
 test("keeps a static fallback when the element or required browser API is absent", () => {
-  for (const options of [{ missingElement: true }, { missingObserver: true }]) {
+  for (const options of [{ missingElement: true }, { missingBody: true }, { missingObserver: true }]) {
     const h = setup(options);
     assert.equal(h.document.listenerCount(), 0);
     assert.equal(h.window.listenerCount(), 0);
     assert.equal(h.frames.size, 0);
     assert.equal(h.attributes.size, 0);
     assert.equal(h.writes.length, 0);
+    assert.equal(h.bodyWrites.length, 0);
   }
 });

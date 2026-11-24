@@ -6,7 +6,8 @@
 
   const enny = document.querySelector("[data-enny]");
   const gaze = enny?.querySelector("[data-enny-gaze]");
-  if (!enny || !gaze || typeof enny.getBoundingClientRect !== "function") return;
+  const body = enny?.querySelector("[data-enny-body]");
+  if (!enny || !gaze || !body || typeof enny.getBoundingClientRect !== "function") return;
   if (typeof window.matchMedia !== "function" ||
       typeof window.requestAnimationFrame !== "function" ||
       typeof window.cancelAnimationFrame !== "function" ||
@@ -21,6 +22,9 @@
   const EASING_MS = 100;
   const MAX_X = 5;
   const MAX_Y = 3;
+  const SWAY_X = 4;
+  const SWAY_Y = 2.5;
+  const SWAY_DEGREES = 7;
   const listeners = [];
   let observer;
   let disposed = false;
@@ -33,6 +37,7 @@
   let x = 0;
   let y = 0;
   let lastTransform = null;
+  let lastBodyTransform = null;
 
   const listen = (target, event, handler, options) => {
     target.addEventListener(event, handler, options);
@@ -45,6 +50,13 @@
     if (transform !== lastTransform) {
       gaze.setAttribute("transform", transform);
       lastTransform = transform;
+    }
+    // Transform only the artwork. The fixed wrapper supplies stable pointer
+    // geometry, so the sway cannot feed back into its own target or shift text.
+    const bodyTransform = `translate(${format(SWAY_X * x / MAX_X)}px, ${format(SWAY_Y * y / MAX_Y)}px) rotate(${format(SWAY_DEGREES * x / MAX_X)}deg)`;
+    if (bodyTransform !== lastBodyTransform) {
+      body.style.transform = bodyTransform;
+      lastBodyTransform = bodyTransform;
     }
   };
 
@@ -73,7 +85,7 @@
 
   const eligible = () => {
     if (disposed) return false;
-    if (enny.isConnected === false || gaze.isConnected === false) {
+    if (enny.isConnected === false || gaze.isConnected === false || body.isConnected === false) {
       dispose();
       return false;
     }

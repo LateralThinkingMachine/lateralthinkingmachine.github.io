@@ -59,7 +59,7 @@ h1 { margin-top: 24px; font-size: clamp(3.25rem, 5.5vw, 4.8rem); line-height: 1.
 .text-link:hover { text-decoration-color: var(--accent); }
 
 .enny-mascot { width: 168px; aspect-ratio: 800 / 797; margin-inline: auto; pointer-events: none; user-select: none; }
-.enny-mascot > svg { width: 100%; height: auto; }
+.enny-mascot > svg { width: 100%; height: auto; transform-origin: 50% 74%; transition: transform 220ms cubic-bezier(.2, .8, .2, 1); }
 .enny-mascot image { image-rendering: pixelated; }
 .enny-eye-layer { opacity: 0; }
 [data-enny-tracking] .enny-eye-layer { opacity: 1; }
@@ -123,6 +123,7 @@ h2 { font-size: clamp(1.9rem, 3.2vw, 2.5rem); line-height: 1.2; font-weight: 550
 
 @media (prefers-reduced-motion: reduce), (hover: none), (pointer: coarse) {
   .enny-eye-layer { display: none; }
+  .enny-mascot > svg { transform: none !important; transition: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {

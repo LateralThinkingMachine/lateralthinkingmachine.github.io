@@ -30,9 +30,11 @@ The small pause button beside the eyebrow stops rotation and offers resume. Manu
 
 [`assets/enny.png`](assets/enny.png) is the supplied transparent artwork, copied without alteration. The hero displays it in normal document flow, centered above the headline and supporting copy. It is decorative, takes no focus, and cannot cover or intercept controls. Its SVG viewBox removes transparent padding without modifying the source image.
 
-[`enny.js`](enny.js) gives both inner eye details one shared gaze direction. Fixed SVG clips preserve the eye outlines and the entire body stays still. Travel is capped to an ellipse of five horizontal and three vertical SVG units (about 1.05 × 0.63 screen pixels at the desktop size), with brief easing and no idle animation loop. No eye or body rotation is used. Mouse/pen movement is supported only with a fine, hover-capable pointer; touch, reduced motion, offscreen, and hidden-page states retain the static artwork. Leaving the page or blurring the window restores a neutral gaze. Without JavaScript, the original artwork remains visible.
+[`enny.js`](enny.js) gives both inner eye details one shared gaze direction. SVG clips preserve the eye outlines, while the whole mascot gently leans toward the pointer. Eye travel is capped to an ellipse of five horizontal and three vertical SVG units (about 1.05 × 0.63 screen pixels at the desktop size). Body sway is capped at 7° with up to 4 px horizontal and 2.5 px vertical movement, eased over 220 ms around a lower-body pivot. The untransformed wrapper keeps pointer geometry and surrounding layout stable. Eyes never rotate independently of the body, and there is no idle animation loop.
 
-Run `node --test tests/enny.test.cjs` for the focused interaction checks. For visual verification, move the pointer across the hero and then outside the page, confirm the body stays anchored, and check both the desktop and mobile layouts.
+Mouse/pen movement is supported only with a fine, hover-capable pointer. Touch and reduced-motion preferences retain the static artwork. Leaving the page, scrolling Enny out of view, hiding the page, or blurring the window restores a neutral gaze and body position. Without JavaScript, the original artwork remains visible.
+
+Run `node --test tests/enny.test.cjs` for the focused interaction checks. For visual verification, move the pointer left, right, above, and below the hero, then outside the page. Confirm Enny leans toward it and settles back to neutral, the eyes stay attached to the face, and the wrapper and surrounding text stay anchored. Check both desktop and mobile layouts.
 
 ## GitHub Pages
 

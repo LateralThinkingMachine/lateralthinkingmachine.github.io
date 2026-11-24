@@ -40,7 +40,7 @@
     <main id="main">
       <section class="hero wrap" aria-labelledby="hero-title">
         <div class="enny-mascot" data-enny aria-hidden="true">
-          <svg viewBox="112 113 800 797" width="800" height="797" focusable="false">
+          <svg data-enny-body viewBox="112 113 800 797" width="800" height="797" focusable="false">
             <defs>
               <linearGradient id="enny-eye-shade" x1="0" y1="507" x2="0" y2="591" gradientUnits="userSpaceOnUse">
                 <stop stop-color="#2b0d08"/>
@@ -53,7 +53,7 @@
               </clipPath>
             </defs>
             <image href="/assets/enny.png" width="1024" height="1024"/>
-            <!-- Fixed eye windows preserve Enny's silhouette; only their inner details move. -->
+            <!-- Eye windows move with the body; their inner details follow the cursor. -->
             <g class="enny-eye-layer" clip-path="url(#enny-eye-windows)">
               <path fill="url(#enny-eye-shade)" d="M395 505h51v87h-51ZM610 505h50v87h-50Z"/>
               <g data-enny-gaze>

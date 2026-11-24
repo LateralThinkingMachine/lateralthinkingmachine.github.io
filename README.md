@@ -2,6 +2,8 @@
 
 The public landing page for Lateral Thinking Machines, AtoposDB, and Enny. A small static website hosted on GitHub Pages, with no build step, external fonts, analytics, or third-party scripts.
 
+The page leads with AtoposDB's product promise: agents build expertise as they work. Supporting copy explains continuity across sessions, channels, and providers; evidence, decisions, and corrections; and scoped knowledge reuse. The technical description identifies the native temporal graph database. Engine, integrated components, and collaborative workspace are stated as development directions, not released offerings. Keep the hero, illustrative evidence-to-correction example, product copy, and search/social metadata consistent with this positioning.
+
 ## Development
 
 Edit `index.html` and `styles.css`. Start a local preview from the repository root:

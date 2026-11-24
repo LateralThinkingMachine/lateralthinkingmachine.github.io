@@ -2,7 +2,9 @@
 
 The public landing page for Lateral Thinking Machines, AtoposDB, and Enny. A small static website hosted on GitHub Pages, with no build step, external fonts, analytics, or third-party scripts. The only client-side script is Enny's optional cursor response.
 
-The page leads with AtoposDB's product promise: agents build expertise as they work. Supporting copy explains continuity across sessions, channels, and providers; evidence, decisions, and corrections; and scoped knowledge reuse. The technical description identifies the native temporal graph database. Engine, integrated components, and collaborative workspace are stated as development directions, not released offerings. Keep the hero, illustrative evidence-to-correction example, product copy, and search/social metadata consistent with this positioning.
+The page leads with AtoposDB's product promise: agents build expertise as they work. Supporting copy explains continuity across sessions, channels, and providers; evidence, decisions, and corrections; and scoped knowledge reuse. The technical description identifies the native temporal graph database. Engine, integrated components, and collaborative workspace are stated as development directions, not released offerings. Keep the hero, product copy, and search/social metadata consistent with this positioning.
+
+The landing page uses a centered, single-column hero: Enny, the product eyebrow, headline, supporting copy, and calls to action share a common center. Supporting prose and the final call to action use the same alignment, with restrained reading widths. AtoposDB and Enny remain in two centered, borderless product columns on larger screens and stack on mobile. The former illustrative diagram is intentionally removed.
 
 ## Development
 
@@ -20,7 +22,7 @@ The header and footer use [`assets/ltm-logo-monochrome.svg`](assets/ltm-logo-mon
 
 ## Enny mascot
 
-[`assets/enny.png`](assets/enny.png) is the supplied transparent artwork, copied without alteration. The hero displays it in normal document flow above the illustrative example. It is decorative, takes no focus, and cannot cover or intercept controls. Its SVG viewBox removes transparent padding without modifying the source image.
+[`assets/enny.png`](assets/enny.png) is the supplied transparent artwork, copied without alteration. The hero displays it in normal document flow, centered above the headline and supporting copy. It is decorative, takes no focus, and cannot cover or intercept controls. Its SVG viewBox removes transparent padding without modifying the source image.
 
 [`enny.js`](enny.js) gives both inner eye details one shared gaze direction. Fixed SVG clips preserve the eye outlines and the entire body stays still. Travel is capped to an ellipse of five horizontal and three vertical SVG units (about 1.05 × 0.63 screen pixels at the desktop size), with brief easing and no idle animation loop. No eye or body rotation is used. Mouse/pen movement is supported only with a fine, hover-capable pointer; touch, reduced motion, offscreen, and hidden-page states retain the static artwork. Leaving the page or blurring the window restores a neutral gaze. Without JavaScript, the original artwork remains visible.
 

@@ -20,7 +20,7 @@ a { color: inherit; text-decoration: none; }
 a:hover { color: var(--accent); }
 a:focus-visible { outline: 3px solid var(--accent); outline-offset: 5px; border-radius: 2px; }
 svg { display: block; flex-shrink: 0; }
-figure, p, h1, h2, h3 { margin: 0; }
+p, h1, h2, h3 { margin: 0; }
 ::selection { color: var(--ink); background: #e6edff; }
 .wrap { width: min(1120px, calc(100% - 64px)); margin-inline: auto; }
 .skip-link { position: fixed; z-index: 10; left: 1rem; top: -5rem; padding: .75rem 1rem; background: var(--ink); color: #fff; }
@@ -33,11 +33,13 @@ figure, p, h1, h2, h3 { margin: 0; }
 .site-header nav { display: flex; align-items: center; gap: 2rem; font-size: .875rem; }
 .site-header nav a { padding-block: .6rem; }
 
-.hero { padding-top: 80px; padding-bottom: 88px; display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(310px, .9fr); align-items: center; gap: 72px; }
+.hero { padding-block: 32px 80px; display: flex; flex-direction: column; align-items: center; gap: 24px; text-align: center; }
+.hero-copy { width: 100%; max-width: 960px; }
 .eyebrow { font-size: .75rem; line-height: 1.5; letter-spacing: .09em; text-transform: uppercase; font-weight: 550; color: var(--muted); }
 h1 { margin-top: 24px; font-size: clamp(3.25rem, 5.5vw, 4.8rem); line-height: 1.04; letter-spacing: -.065em; font-weight: 580; }
-.hero-description { max-width: 36ch; margin-top: 28px; color: var(--muted); font-size: 1.125rem; line-height: 1.7; letter-spacing: -.012em; }
-.hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 24px; margin-top: 36px; }
+.hero h1 { max-width: 900px; margin: 20px auto 0; text-wrap: balance; }
+.hero-description { max-width: 64ch; margin: 24px auto 0; color: var(--muted); font-size: 1.125rem; line-height: 1.7; letter-spacing: -.012em; }
+.hero-actions { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 24px; margin-top: 28px; }
 .button { display: inline-flex; justify-content: center; align-items: center; gap: .65rem; min-height: 46px; padding: .65rem 1.1rem; border: 1px solid transparent; border-radius: 5px; font-size: .875rem; line-height: 1.5; font-weight: 550; white-space: nowrap; }
 .button-primary { background: var(--ink); color: #fff; }
 .button-primary:hover { background: #263348; color: #fff; }
@@ -46,32 +48,18 @@ h1 { margin-top: 24px; font-size: clamp(3.25rem, 5.5vw, 4.8rem); line-height: 1.
 .text-link { font-size: .875rem; text-decoration-line: underline; text-decoration-color: #c2c8d2; text-underline-offset: 5px; text-decoration-thickness: 1px; }
 .text-link:hover { text-decoration-color: var(--accent); }
 
-.hero-visual { display: grid; gap: 24px; min-width: 0; }
 .enny-mascot { width: 168px; aspect-ratio: 800 / 797; margin-inline: auto; pointer-events: none; user-select: none; }
 .enny-mascot > svg { width: 100%; height: auto; }
 .enny-mascot image { image-rendering: pixelated; }
 .enny-eye-layer { opacity: 0; }
 [data-enny-tracking] .enny-eye-layer { opacity: 1; }
-.context-map { margin-top: 0; }
-.context-map figcaption { display: flex; justify-content: space-between; gap: 1rem; padding-bottom: 18px; color: var(--muted); font-size: .75rem; line-height: 1.5; }
-.context-map figcaption span { color: var(--muted); }
-.context-flow { list-style: none; margin: 0; padding: 0; border: 1px solid var(--line); border-radius: 6px; }
-.context-flow li { position: relative; min-height: 104px; display: grid; grid-template-columns: 34px minmax(0, 1fr); align-items: center; gap: 18px; padding: 24px 28px; }
-.context-flow li + li { border-top: 1px solid var(--line); }
-.node-icon { display: flex; justify-content: center; color: #626c7a; }
-.node-icon svg { width: 22px; height: 22px; }
-.node-type { display: block; margin-bottom: 3px; font-size: .75rem; color: var(--muted); }
-.node-value { display: block; font-size: 1rem; letter-spacing: -.01em; }
-.context-decision .node-icon { color: var(--accent); }
-.context-decision .node-value { font-weight: 550; }
-.context-flow li:not(:last-child)::after { content: ""; width: 1px; height: 20px; position: absolute; left: 44px; bottom: -10px; background: #bac2cf; z-index: 1; }
-.context-note { margin-top: 16px; color: var(--muted); font-size: .75rem; text-align: center; }
 
 .section-rule { border-top: 1px solid var(--line); }
-.philosophy { display: grid; grid-template-columns: 1fr 2fr; gap: 72px; padding-block: 88px; }
-.section-label { padding-top: 10px; }
+.philosophy { padding-block: 80px; text-align: center; }
+.section-label { margin-bottom: 20px; }
 h2 { font-size: clamp(1.9rem, 3.2vw, 2.5rem); line-height: 1.2; font-weight: 550; letter-spacing: -.045em; }
-.philosophy-copy p { max-width: 57ch; font-size: 1.0625rem; line-height: 1.75; color: var(--muted); }
+.philosophy-copy h2 { max-width: 24ch; margin-inline: auto; text-wrap: balance; }
+.philosophy-copy p { max-width: 66ch; margin-inline: auto; font-size: 1.0625rem; line-height: 1.75; color: var(--muted); }
 .philosophy-copy h2 + p { margin-top: 26px; }
 .philosophy-copy p + p { margin-top: 16px; }
 .work { padding-block: 88px 100px; }
@@ -83,8 +71,9 @@ h2 { font-size: clamp(1.9rem, 3.2vw, 2.5rem); line-height: 1.2; font-weight: 550
 .product h3 { font-size: 1.5rem; line-height: 1.25; font-weight: 570; letter-spacing: -.03em; }
 .product-role { margin-top: 12px; font-size: 1rem; font-weight: 500; }
 .product-description { max-width: 31ch; margin: 18px auto 0; color: var(--muted); font-size: 1rem; line-height: 1.7; }
-.follow { display: flex; align-items: center; justify-content: space-between; gap: 48px; padding-block: 88px; }
-.follow p { max-width: 54ch; margin-top: 22px; font-size: 1.0625rem; line-height: 1.75; color: var(--muted); }
+.follow { display: flex; flex-direction: column; align-items: center; gap: 28px; padding-block: 80px; text-align: center; }
+.follow h2 { text-wrap: balance; }
+.follow p { max-width: 58ch; margin: 22px auto 0; font-size: 1.0625rem; line-height: 1.75; color: var(--muted); }
 .follow .button { flex-shrink: 0; }
 .site-footer { display: flex; align-items: center; gap: 24px; border-top: 1px solid var(--line); min-height: 104px; font-size: .75rem; color: var(--muted); }
 .footer-brand { color: var(--ink); }
@@ -98,11 +87,6 @@ h2 { font-size: clamp(1.9rem, 3.2vw, 2.5rem); line-height: 1.2; font-weight: 550
 
 @media (max-width: 1000px) {
   .brand-name { display: none; }
-  .hero { gap: 42px; grid-template-columns: minmax(0, 1.1fr) minmax(280px, .9fr); padding-block: 86px; }
-  h1 { font-size: clamp(3rem, 5.7vw, 4.25rem); }
-  .context-flow li { padding-inline: 20px; gap: 12px; }
-  .context-flow li:not(:last-child)::after { left: 36px; }
-  .philosophy { gap: 42px; grid-template-columns: 1fr 2fr; }
   .products { gap: 52px; }
 }
 
@@ -111,21 +95,17 @@ h2 { font-size: clamp(1.9rem, 3.2vw, 2.5rem); line-height: 1.2; font-weight: 550
   .site-header { min-height: 80px; gap: 24px; }
   .brand-logo { width: 104px; }
   .site-header nav { gap: 20px; font-size: .875rem; }
-  .hero { grid-template-columns: 1fr; gap: 56px; padding-block: 64px; }
-  h1 { font-size: clamp(2.9rem, 8.4vw, 4rem); max-width: 14ch; }
-  .hero-description { max-width: 42ch; margin-top: 24px; }
+  .hero { gap: 20px; padding-block: 32px 56px; }
+  .hero h1 { font-size: clamp(2.65rem, 7vw, 3.25rem); max-width: 19ch; margin-top: 18px; }
+  .hero-description { max-width: 42ch; margin-top: 20px; }
   .hero-actions { margin-top: 28px; gap: 22px; }
-  .context-map { margin: 0; max-width: 480px; width: 100%; }
-  .hero-visual { max-width: 480px; gap: 24px; }
   .enny-mascot { width: 144px; }
-  .context-flow li { min-height: 94px; padding-block: 18px; }
-  .philosophy { grid-template-columns: 1fr; gap: 22px; padding-block: 60px; }
-  .section-label { padding: 0; }
+  .philosophy { padding-block: 60px; }
   .philosophy-copy h2 + p { margin-top: 22px; }
   .work { padding-block: 60px 64px; }
   .products { gap: 32px; margin-top: 48px; }
   .product-description { font-size: 1rem; }
-  .follow { align-items: flex-start; flex-direction: column; gap: 28px; padding-block: 60px; }
+  .follow { padding-block: 60px; }
   .follow p { margin-top: 20px; }
   .site-footer { min-height: 100px; gap: 18px; }
   .site-footer p { font-size: .75rem; }

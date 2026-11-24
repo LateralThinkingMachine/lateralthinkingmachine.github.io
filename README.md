@@ -1,6 +1,6 @@
 # Lateral Thinking Machines
 
-The public landing page for Lateral Thinking Machines, AtoposDB, and Enny. A small static website hosted on GitHub Pages, with no build step, external fonts, analytics, or third-party scripts. The only client-side script is Enny's optional cursor response.
+The public landing page for Lateral Thinking Machines, AtoposDB, and Enny. A small static website hosted on GitHub Pages, with no build step, external fonts, analytics, or third-party scripts. Small client-side scripts provide Enny's optional cursor response and the rotating headline.
 
 The page leads with AtoposDB's product promise: agents build expertise as they work. Supporting copy explains continuity across sessions, channels, and providers; evidence, decisions, and corrections; and scoped knowledge reuse. The technical description identifies the native temporal graph database. Engine, integrated components, and collaborative workspace are stated as development directions, not released offerings. Keep the hero, product copy, and search/social metadata consistent with this positioning.
 
@@ -19,6 +19,12 @@ Open `http://127.0.0.1:8767`. Check desktop and mobile layouts, keyboard focus, 
 The supplied original 6000 × 2000 banner is retained in `assets/` for social previews. The page itself uses native text and inline vector icons. Lucide's database and orbit icons retain the [upstream license notices](assets/LUCIDE-LICENSE.txt).
 
 The header and footer use [`assets/ltm-logo-monochrome.svg`](assets/ltm-logo-monochrome.svg), a vector interpretation of the supplied brand sheet's monochrome logo: three overlapping rounded tiles with white separation lines and a rounded lowercase `ltm` wordmark, in a single navy ink. [`favicon.svg`](favicon.svg) uses the same tile geometry. Both remain sharp at any resolution, and CSS preserves the lockup's proportions. Keep logo edits in these SVG sources; the full-color social-preview banner is a separate supplied asset.
+
+## Rotating headline
+
+[`headline.js`](headline.js) alternates the two hero messages after a six-second reading interval, fading out and then in over 240 ms each so letters never overlap. Both messages occupy the same CSS grid cell so the taller phrase reserves space at every screen size. The heading has one stable accessible text containing both messages; changes are not announced repeatedly to screen readers.
+
+The small pause button beside the eyebrow stops rotation and offers resume. Manual pause persists while scrolling away or switching tabs. Offscreen and hidden-page states suspend the timer; returning starts a fresh six-second reading interval. Reduced-motion preferences keep the first headline static and hide the animation control. Without JavaScript, the first headline remains visible. Check both messages at desktop and mobile widths and verify pause/resume before publishing.
 
 ## Enny mascot
 

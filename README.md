@@ -24,7 +24,7 @@ The header and footer use [`assets/ltm-logo-monochrome.svg`](assets/ltm-logo-mon
 
 [`headline.js`](headline.js) alternates the two hero messages after a six-second reading interval, fading out and then in over 240 ms each so letters never overlap. Both messages occupy the same CSS grid cell so the taller phrase reserves space at every screen size. The heading has one stable accessible text containing both messages; changes are not announced repeatedly to screen readers.
 
-The small pause button beside the eyebrow stops rotation and offers resume. Manual pause persists while scrolling away or switching tabs. Offscreen and hidden-page states suspend the timer; returning starts a fresh six-second reading interval. Reduced-motion preferences keep the first headline static and hide the animation control. Without JavaScript, the first headline remains visible. Check both messages at desktop and mobile widths and verify pause/resume before publishing.
+There is no visible playback control. Rotation pauses while a mouse or pen hovers over the headline or keyboard focus is within the hero copy. Offscreen and hidden-page states also suspend the timer; returning starts a fresh six-second reading interval. Reduced-motion preferences keep the first headline static. Without JavaScript, the first headline remains visible. Check both messages at desktop and mobile widths and verify automatic pause/resume before publishing.
 
 ## Enny mascot
 

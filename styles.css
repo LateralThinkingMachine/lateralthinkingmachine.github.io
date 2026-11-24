@@ -39,15 +39,11 @@ p, h1, h2, h3 { margin: 0; }
 .eyebrow { font-size: .75rem; line-height: 1.5; letter-spacing: .09em; text-transform: uppercase; font-weight: 550; color: var(--muted); }
 h1 { margin-top: 24px; font-size: clamp(3.25rem, 5.5vw, 4.8rem); line-height: 1.04; letter-spacing: -.065em; font-weight: 580; }
 .hero h1 { max-width: 900px; margin: 20px auto 0; text-wrap: balance; }
-.hero-kicker { display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 28px; }
+.hero-kicker { display: flex; align-items: center; justify-content: center; min-height: 28px; }
 .rotating-headline { display: grid; }
 .headline-message { grid-area: 1 / 1; align-self: center; opacity: 0; transition: opacity 240ms ease; }
 .headline-message[data-active] { opacity: 1; }
 .rotating-headline[data-fading] .headline-message { opacity: 0; }
-.headline-toggle { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; width: 28px; height: 28px; padding: 0; border: 0; border-radius: 4px; color: var(--muted); background: transparent; cursor: pointer; }
-.headline-toggle:hover { color: var(--ink); background: #f3f4f6; }
-.headline-toggle[hidden], .headline-play, .headline-toggle[data-paused] .headline-pause { display: none; }
-.headline-toggle[data-paused] .headline-play { display: block; }
 .hero-description { max-width: 64ch; margin: 24px auto 0; color: var(--muted); font-size: 1.125rem; line-height: 1.7; letter-spacing: -.012em; }
 .hero-actions { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 24px; margin-top: 28px; }
 .button { display: inline-flex; justify-content: center; align-items: center; gap: .65rem; min-height: 46px; padding: .65rem 1.1rem; border: 1px solid transparent; border-radius: 5px; font-size: .875rem; line-height: 1.5; font-weight: 550; white-space: nowrap; }

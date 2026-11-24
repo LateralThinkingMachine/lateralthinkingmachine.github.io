@@ -2,8 +2,8 @@
   "use strict";
 
   const headline = document.querySelector("[data-headline]");
-  const toggle = document.querySelector("[data-headline-toggle]");
-  if (!headline || !toggle || !window.matchMedia || !window.IntersectionObserver) return;
+  if (!headline || !window.matchMedia || !window.IntersectionObserver) return;
+  const copy = headline.closest(".hero-copy") || headline;
 
   const messages = [...headline.querySelectorAll(".headline-message")];
   if (messages.length < 2) return;
@@ -11,7 +11,8 @@
   const DWELL_MS = 6000;
   const FADE_MS = 240;
   let current = 0;
-  let paused = false;
+  let hovered = window.matchMedia("(hover: hover)").matches && headline.matches(":hover");
+  let focused = copy.contains(document.activeElement);
   let inView = false;
   let pageActive = true;
   let timer;
@@ -26,7 +27,7 @@
     window.clearTimeout(timer);
     window.clearTimeout(fadeTimer);
     headline.removeAttribute("data-fading");
-    if (paused || motion.matches || !inView || document.hidden || !pageActive) return;
+    if (hovered || focused || motion.matches || !inView || document.hidden || !pageActive) return;
     timer = window.setTimeout(() => {
       headline.setAttribute("data-fading", "");
       fadeTimer = window.setTimeout(() => {
@@ -37,17 +38,20 @@
   };
 
   const updateMotion = () => {
-    toggle.hidden = motion.matches;
     if (motion.matches) show(0);
     schedule();
   };
 
-  toggle.addEventListener("click", () => {
-    paused = !paused;
-    const label = paused ? "Resume headline rotation" : "Pause headline rotation";
-    toggle.setAttribute("aria-label", label);
-    toggle.setAttribute("title", label);
-    toggle.toggleAttribute("data-paused", paused);
+  headline.addEventListener("pointerenter", event => {
+    if (event.pointerType === "touch") return;
+    hovered = true;
+    schedule();
+  });
+  headline.addEventListener("pointerleave", () => { hovered = false; schedule(); });
+  headline.addEventListener("pointercancel", () => { hovered = false; schedule(); });
+  copy.addEventListener("focusin", () => { focused = true; schedule(); });
+  copy.addEventListener("focusout", event => {
+    focused = copy.contains(event.relatedTarget);
     schedule();
   });
 

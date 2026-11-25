@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="310" height="116" viewBox="0 0 310 116" fill="none">
+  <title>Lateral Thinking Machines</title>
+  <g fill="#FFFFFF">
+    <rect x="2" y="2" width="52" height="112" rx="26"/>
+    <rect x="22" y="36" width="60" height="78" rx="26" stroke="#101112" stroke-width="3"/>
+    <rect x="36" y="70" width="82" height="44" rx="22" stroke="#101112" stroke-width="3"/>
+  </g>
+  <g stroke="#FFFFFF" stroke-width="18" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M142 20v51q0 16 13 16"/>
+    <path d="M179 24v47q0 16 14 16M168 44h29"/>
+    <path d="M220 87V57c0-12 8-20 18-20s18 8 18 20v30M256 57c0-12 8-20 18-20s18 8 18 20v30"/>
+  </g>
+</svg>

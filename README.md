@@ -1,6 +1,6 @@
 # Lateral Thinking Machines
 
-The public landing page for Lateral Thinking Machines, AtoposDB, and Enny. A small static website hosted on GitHub Pages, with no build step, external fonts, analytics, or third-party scripts. Small client-side scripts provide Enny's optional cursor response and the rotating headline.
+The public landing page for Lateral Thinking Machines, AtoposDB, and Enny. A small static website hosted on GitHub Pages, with no runtime dependencies, external fonts, analytics, or third-party scripts. A dependency-free Node script generates the eight language pages before publication. Small client-side scripts provide the expandable header, Enny's optional cursor response, and the rotating headline.
 
 The page leads with AtoposDB's product promise: agents build expertise as they work. Supporting copy explains continuity across sessions, channels, and providers; evidence, decisions, and corrections; and scoped knowledge reuse. The technical description identifies the native temporal graph database. Engine, integrated components, and collaborative workspace are stated as development directions, not released offerings. Keep the hero, product copy, and search/social metadata consistent with this positioning.
 
@@ -8,7 +8,14 @@ The landing page uses a centered, single-column hero: Enny, the product eyebrow,
 
 ## Development
 
-Edit `index.html` and `styles.css`. Start a local preview from the repository root:
+Edit `templates/index.html`, the copy in `locales/*.json`, and `styles.css`. Do not edit the generated root or locale `index.html` files directly. Regenerate and verify before previewing or publishing:
+
+```sh
+node scripts/build.mjs
+node --test tests/*.test.cjs
+```
+
+Start a local preview from the repository root:
 
 ```sh
 python3 -m http.server 8767 --bind 127.0.0.1
@@ -18,7 +25,30 @@ Open `http://127.0.0.1:8767`. Check desktop and mobile layouts, keyboard focus, 
 
 The supplied original 6000 × 2000 banner is retained in `assets/` for social previews. The page itself uses native text and inline vector icons. Lucide's database and orbit icons retain the [upstream license notices](assets/LUCIDE-LICENSE.txt).
 
-The header and footer use [`assets/ltm-logo-monochrome.svg`](assets/ltm-logo-monochrome.svg), a vector interpretation of the supplied brand sheet's monochrome logo: three overlapping rounded tiles with white separation lines and a rounded lowercase `ltm` wordmark, in a single navy ink. [`favicon.svg`](favicon.svg) uses the same tile geometry. Both remain sharp at any resolution, and CSS preserves the lockup's proportions. Keep logo edits in these SVG sources; the full-color social-preview banner is a separate supplied asset.
+The footer uses [`assets/ltm-logo-monochrome.svg`](assets/ltm-logo-monochrome.svg), a vector interpretation of the supplied brand sheet's monochrome logo: three overlapping rounded tiles with white separation lines and a rounded lowercase `ltm` wordmark, in a single navy ink. [`favicon.svg`](favicon.svg) uses the same tile geometry. Both remain sharp at any resolution, and CSS preserves the lockup's proportions. Keep logo edits in these SVG sources; the full-color social-preview banner is a separate supplied asset.
+
+## Header and languages
+
+The header follows the floating pill and expandable-panel pattern from the user’s Lilly reference. Its left pill pairs the monochrome LTM lockup with a hamburger; the right pill has a sharp vector globe. The white-on-dark logo in `assets/ltm-logo-light.svg` uses the same geometry as the footer logo, with separation strokes matching the header background.
+
+`navigation.js` enhances native `<details>` disclosures. Click, Enter, and Space open the panels. On fine pointers, hovering over the logo/menu pill opens navigation after 140 ms; leaving closes it after 220 ms unless focus remains inside. The menu remains open while crossing into its panel. Escape closes it and returns focus to its trigger; outside clicks and focus leaving the header dismiss it. Only one panel is open at a time. Reduced motion removes panel animation. Without JavaScript, both native disclosures and all language links still work. The panels are nonmodal: normal page navigation and keyboard traversal remain available.
+
+The eight complete translations are published at these stable URLs:
+
+| Language | Path |
+| --- | --- |
+| English | `/` |
+| Japanese | `/ja/` |
+| Simplified Chinese | `/zh-hans/` |
+| Korean | `/ko/` |
+| Spanish | `/es/` |
+| French | `/fr/` |
+| German | `/de/` |
+| Brazilian Portuguese | `/pt-br/` |
+
+The language grid identifies each language by its own name and a secondary English name or regional variant. Switching uses ordinary links; there is no IP detection, automatic redirect, third-party translation widget, or stored preference. Every page includes translated visible copy, accessible labels, search/social metadata, its own canonical URL, and reciprocal `hreflang` links. `scripts/build.mjs` validates translation-key parity and regenerates these pages and the multilingual sitemap. Shared assets use root-relative URLs; in-page navigation stays in the selected language. The existing English `404.html` is the common GitHub Pages fallback.
+
+After copy changes, run the generator and focused checks, then inspect the header and the longest headlines on desktop and mobile. Publish the generated pages with their source files in the same commit.
 
 ## Rotating headline
 

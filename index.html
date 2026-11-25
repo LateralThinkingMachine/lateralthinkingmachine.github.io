@@ -7,6 +7,16 @@
     <title>AtoposDB — Your agents build expertise as they work.</title>
     <meta name="description" content="AtoposDB helps people and AI agents continue work across sessions, channels, and providers, preserving evidence, decisions, and corrections for reusable expertise.">
     <link rel="canonical" href="https://lateralthinkingmachines.ai/">
+    <link rel="alternate" hreflang="en" href="https://lateralthinkingmachines.ai/">
+    <link rel="alternate" hreflang="ja" href="https://lateralthinkingmachines.ai/ja/">
+    <link rel="alternate" hreflang="zh-Hans" href="https://lateralthinkingmachines.ai/zh-hans/">
+    <link rel="alternate" hreflang="ko" href="https://lateralthinkingmachines.ai/ko/">
+    <link rel="alternate" hreflang="es" href="https://lateralthinkingmachines.ai/es/">
+    <link rel="alternate" hreflang="fr" href="https://lateralthinkingmachines.ai/fr/">
+    <link rel="alternate" hreflang="de" href="https://lateralthinkingmachines.ai/de/">
+    <link rel="alternate" hreflang="pt-BR" href="https://lateralthinkingmachines.ai/pt-br/">
+    <link rel="alternate" hreflang="x-default" href="https://lateralthinkingmachines.ai/">
+    <meta property="og:locale" content="en_US">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Lateral Thinking Machines">
     <meta property="og:title" content="Your agents build expertise as they work.">
@@ -20,21 +30,60 @@
     <meta name="twitter:image" content="https://lateralthinkingmachines.ai/assets/ltm-banner-6000x2000.png">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="stylesheet" href="/styles.css">
+    <script src="/navigation.js" defer></script>
     <script src="/enny.js" defer></script>
     <script src="/headline.js" defer></script>
   </head>
   <body id="top">
     <a class="skip-link" href="#main">Skip to content</a>
-    <header class="site-header wrap">
-      <a class="brand" href="/" aria-label="Lateral Thinking Machines home">
-        <img class="brand-logo" src="/assets/ltm-logo-monochrome.svg" width="155" height="58" alt="">
-        <span class="brand-name">Lateral Thinking Machines</span>
-      </a>
-      <nav aria-label="Main navigation">
-        <a href="#work">Our work</a>
-        <a href="#why-memory">Why AtoposDB</a>
-        <a href="https://github.com/LateralThinkingMachine">GitHub</a>
-      </nav>
+    <div class="header-backdrop" aria-hidden="true"></div>
+    <header class="global-header" data-site-header>
+      <details class="header-disclosure menu-disclosure" data-header-panel="menu" name="header-panels">
+        <summary class="header-pill menu-trigger" data-panel-trigger aria-controls="main-menu">
+          <img class="header-logo" src="/assets/ltm-logo-light.svg" width="310" height="116" alt="Lateral Thinking Machines">
+          <svg class="menu-lines" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+          <svg class="menu-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
+          <span class="visually-hidden" data-trigger-label data-open-label="Open menu" data-close-label="Close menu">Open menu</span>
+        </summary>
+        <div class="header-panel nav-panel" id="main-menu" data-panel-content>
+          <nav class="menu-links" aria-label="Main navigation">
+            <a class="menu-home" href="#top" aria-current="page">Home</a>
+            <a href="#atoposdb">AtoposDB</a>
+            <a href="#enny">Enny</a>
+            <a href="#why-memory">Why AtoposDB</a>
+            <a class="menu-github" href="https://github.com/LateralThinkingMachine">GitHub</a>
+          </nav>
+          <div class="menu-overview">
+            <div class="menu-intro">
+              <h2>Lateral Thinking Machines</h2>
+              <p>We’re building the foundations for people and AI agents to carry useful knowledge forward.</p>
+            </div>
+            <a class="menu-feature" href="#work">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14a8 3 0 0 0 16 0V5M4 12a8 3 0 0 0 16 0"/></svg>
+              <div><p class="menu-feature-eyebrow">AtoposDB</p><h3>Experience becomes expertise.</h3><p>Preserve the evidence, decisions, and corrections behind persistent agent work.</p><span class="menu-feature-link">Explore our work</span></div>
+            </a>
+          </div>
+        </div>
+      </details>
+      <details class="header-disclosure language-disclosure" data-header-panel="languages" name="header-panels">
+        <summary class="header-pill language-trigger" data-panel-trigger aria-controls="language-options">
+          <svg class="globe-icon" width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18M4.5 7.5h15M4.5 16.5h15"/></svg>
+          <svg class="menu-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
+          <span class="visually-hidden" data-trigger-label data-open-label="Choose language" data-close-label="Close language selector">Choose language</span>
+        </summary>
+        <section class="header-panel language-panel" id="language-options" data-panel-content aria-labelledby="language-title">
+          <h2 id="language-title">Choose your language</h2>
+          <p class="language-intro">The same work. In your language.</p>
+          <ul class="language-grid"><li><a href="/" lang="en" hreflang="en" aria-current="page"><span class="language-name">English</span><span class="language-detail" lang="en">International</span><span class="language-current" lang="en">Current language</span></a></li>
+            <li><a href="/ja/" lang="ja" hreflang="ja"><span class="language-name">日本語</span><span class="language-detail" lang="en">Japanese</span></a></li>
+            <li><a href="/zh-hans/" lang="zh-Hans" hreflang="zh-Hans"><span class="language-name">简体中文</span><span class="language-detail" lang="en">Simplified Chinese</span></a></li>
+            <li><a href="/ko/" lang="ko" hreflang="ko"><span class="language-name">한국어</span><span class="language-detail" lang="en">Korean</span></a></li>
+            <li><a href="/es/" lang="es" hreflang="es"><span class="language-name">Español</span><span class="language-detail" lang="en">Spanish</span></a></li>
+            <li><a href="/fr/" lang="fr" hreflang="fr"><span class="language-name">Français</span><span class="language-detail" lang="en">French</span></a></li>
+            <li><a href="/de/" lang="de" hreflang="de"><span class="language-name">Deutsch</span><span class="language-detail" lang="en">German</span></a></li>
+            <li><a href="/pt-br/" lang="pt-BR" hreflang="pt-BR"><span class="language-name">Português</span><span class="language-detail" lang="pt-BR">Brasil</span></a></li></ul>
+        </section>
+      </details>
     </header>
 
     <main id="main">
@@ -98,13 +147,13 @@
           <h2 id="work-title">What we’re building</h2>
         </div>
         <div class="products">
-          <article class="product" aria-labelledby="atoposdb-title">
+          <article class="product" id="atoposdb" aria-labelledby="atoposdb-title">
             <svg class="product-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg>
             <h3 id="atoposdb-title">AtoposDB</h3>
             <p class="product-role">A native temporal graph database.</p>
             <p class="product-description">For persistent agent work, evidence tracking, and scoped knowledge reuse.</p>
           </article>
-          <article class="product" aria-labelledby="enny-title">
+          <article class="product" id="enny" aria-labelledby="enny-title">
             <svg class="product-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.341 6.484A10 10 0 0 1 10.266 21.85"/><path d="M3.659 17.516A10 10 0 0 1 13.74 2.152"/><circle cx="12" cy="12" r="3"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="19" r="2"/></svg>
             <h3 id="enny-title">Enny</h3>
             <p class="product-role">The memory companion.</p>

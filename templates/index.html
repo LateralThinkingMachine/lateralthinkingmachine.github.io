@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="{{lang}}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+    <title>{{pageTitle}}</title>
+    <meta name="description" content="{{metaDescription}}">
+    <link rel="canonical" href="{{canonical}}">
+    {{alternateLinks}}
+    <meta property="og:locale" content="{{ogLocale}}">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Lateral Thinking Machines">
+    <meta property="og:title" content="{{ogTitle}}">
+    <meta property="og:description" content="{{ogDescription}}">
+    <meta property="og:url" content="{{canonical}}">
+    <meta property="og:image" content="https://lateralthinkingmachines.ai/assets/ltm-banner-6000x2000.png">
+    <meta property="og:image:alt" content="{{bannerAlt}}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{pageTitle}}">
+    <meta name="twitter:description" content="{{twitterDescription}}">
+    <meta name="twitter:image" content="https://lateralthinkingmachines.ai/assets/ltm-banner-6000x2000.png">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/navigation.js" defer></script>
+    <script src="/enny.js" defer></script>
+    <script src="/headline.js" defer></script>
+  </head>
+  <body id="top">
+    <a class="skip-link" href="#main">{{skip}}</a>
+    <div class="header-backdrop" aria-hidden="true"></div>
+    <header class="global-header" data-site-header>
+      <details class="header-disclosure menu-disclosure" data-header-panel="menu" name="header-panels">
+        <summary class="header-pill menu-trigger" data-panel-trigger aria-controls="main-menu">
+          <img class="header-logo" src="/assets/ltm-logo-light.svg" width="310" height="116" alt="Lateral Thinking Machines">
+          <svg class="menu-lines" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+          <svg class="menu-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
+          <span class="visually-hidden" data-trigger-label data-open-label="{{openMenu}}" data-close-label="{{closeMenu}}">{{openMenu}}</span>
+        </summary>
+        <div class="header-panel nav-panel" id="main-menu" data-panel-content>
+          <nav class="menu-links" aria-label="{{mainNavLabel}}">
+            <a class="menu-home" href="#top" aria-current="page">{{menuHome}}</a>
+            <a href="#atoposdb">AtoposDB</a>
+            <a href="#enny">Enny</a>
+            <a href="#why-memory">{{menuWhy}}</a>
+            <a class="menu-github" href="https://github.com/LateralThinkingMachine">{{menuGithub}}</a>
+          </nav>
+          <div class="menu-overview">
+            <div class="menu-intro">
+              <h2>{{menuTagline}}</h2>
+              <p>{{menuDescription}}</p>
+            </div>
+            <a class="menu-feature" href="#work">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14a8 3 0 0 0 16 0V5M4 12a8 3 0 0 0 16 0"/></svg>
+              <div><p class="menu-feature-eyebrow">{{menuFeatureEyebrow}}</p><h3>{{menuFeatureTitle}}</h3><p>{{menuFeatureDescription}}</p><span class="menu-feature-link">{{menuFeatureLink}}</span></div>
+            </a>
+          </div>
+        </div>
+      </details>
+      <details class="header-disclosure language-disclosure" data-header-panel="languages" name="header-panels">
+        <summary class="header-pill language-trigger" data-panel-trigger aria-controls="language-options">
+          <svg class="globe-icon" width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18M4.5 7.5h15M4.5 16.5h15"/></svg>
+          <svg class="menu-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
+          <span class="visually-hidden" data-trigger-label data-open-label="{{languageLabel}}" data-close-label="{{closeLanguages}}">{{languageLabel}}</span>
+        </summary>
+        <section class="header-panel language-panel" id="language-options" data-panel-content aria-labelledby="language-title">
+          <h2 id="language-title">{{languageDialogTitle}}</h2>
+          <p class="language-intro">{{languageIntro}}</p>
+          <ul class="language-grid">{{languageLinks}}</ul>
+        </section>
+      </details>
+    </header>
+
+    <main id="main">
+      <section class="hero wrap" aria-labelledby="hero-title">
+        <div class="enny-mascot" data-enny aria-hidden="true">
+          <svg data-enny-body viewBox="112 113 800 797" width="800" height="797" focusable="false">
+            <defs>
+              <linearGradient id="enny-eye-shade" x1="0" y1="507" x2="0" y2="591" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#2b0d08"/>
+                <stop offset=".55" stop-color="#351005"/>
+                <stop offset="1" stop-color="#4d1906"/>
+              </linearGradient>
+              <clipPath id="enny-eye-windows">
+                <path d="M410 506h23v15h12v57h-11v12h-28v-12h-10v-57h14Z"/>
+                <path d="M625 506h20v15h14v57h-12v12h-25v-12h-11v-57h14Z"/>
+              </clipPath>
+            </defs>
+            <image href="/assets/enny.png" width="1024" height="1024"/>
+            <!-- Eye windows move with the body; their inner details follow the cursor. -->
+            <g class="enny-eye-layer" clip-path="url(#enny-eye-windows)">
+              <path fill="url(#enny-eye-shade)" d="M395 505h51v87h-51ZM610 505h50v87h-50Z"/>
+              <g data-enny-gaze>
+                <path fill="#280c07" d="M408 517h25v36h-25ZM623 517h24v36h-24Z"/>
+                <path fill="#fffaf5" shape-rendering="crispEdges" d="M410 521h21v16h-21ZM625 521h20v16h-20Z"/>
+              </g>
+            </g>
+          </svg>
+        </div>
+
+        <div class="hero-copy">
+          <div class="hero-kicker">
+            <p class="eyebrow">{{heroEyebrow}}</p>
+          </div>
+          <h1 id="hero-title" class="rotating-headline" data-headline>
+            <span class="visually-hidden">{{headline1}} {{headline2}} {{headline3}}</span>
+            <span class="headline-message" data-active aria-hidden="true">{{headline1}}</span>
+            <span class="headline-message" aria-hidden="true">{{headline2}}</span>
+            <span class="headline-message" aria-hidden="true">{{headline3}}</span>
+          </h1>
+          <p class="hero-description">{{heroDescription}}</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#work">{{exploreAtopos}}</a>
+            <a class="text-link" href="https://github.com/LateralThinkingMachine">{{findGithub}}</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="philosophy wrap section-rule" id="why-memory" aria-labelledby="why-title">
+        <p class="eyebrow section-label">{{philosophyEyebrow}}</p>
+        <div class="philosophy-copy">
+          <h2 id="why-title">{{philosophyTitle}}</h2>
+          <p>{{philosophy1}}</p>
+          <p>{{philosophy2}}</p>
+          <p>{{philosophy3}}</p>
+        </div>
+      </section>
+
+      <section class="work wrap section-rule" id="work" aria-labelledby="work-title">
+        <div class="section-heading">
+          <p class="eyebrow">{{workEyebrow}}</p>
+          <h2 id="work-title">{{workTitle}}</h2>
+        </div>
+        <div class="products">
+          <article class="product" id="atoposdb" aria-labelledby="atoposdb-title">
+            <svg class="product-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg>
+            <h3 id="atoposdb-title">AtoposDB</h3>
+            <p class="product-role">{{atoposRole}}</p>
+            <p class="product-description">{{atoposDescription}}</p>
+          </article>
+          <article class="product" id="enny" aria-labelledby="enny-title">
+            <svg class="product-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.341 6.484A10 10 0 0 1 10.266 21.85"/><path d="M3.659 17.516A10 10 0 0 1 13.74 2.152"/><circle cx="12" cy="12" r="3"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="19" r="2"/></svg>
+            <h3 id="enny-title">Enny</h3>
+            <p class="product-role">{{ennyRole}}</p>
+            <p class="product-description">{{ennyDescription}}</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="follow wrap section-rule" aria-labelledby="follow-title">
+        <div>
+          <h2 id="follow-title">{{followTitle}}</h2>
+          <p>{{followDescription}}</p>
+        </div>
+        <a class="button button-secondary" href="https://github.com/LateralThinkingMachine">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .9a11.1 11.1 0 0 0-3.51 21.63c.55.1.76-.24.76-.53v-2.05c-3.1.67-3.76-1.31-3.76-1.31-.5-1.28-1.24-1.62-1.24-1.62-1.01-.69.08-.68.08-.68 1.12.08 1.7 1.15 1.7 1.15 1 1.7 2.6 1.21 3.24.93.1-.72.39-1.21.7-1.49-2.48-.28-5.08-1.24-5.08-5.52 0-1.22.43-2.21 1.15-2.99-.11-.28-.5-1.41.11-2.94 0 0 .94-.3 3.06 1.14A10.6 10.6 0 0 1 12 6.25c.94 0 1.88.13 2.77.37 2.12-1.44 3.05-1.14 3.05-1.14.61 1.53.23 2.66.11 2.94.72.78 1.15 1.77 1.15 2.99 0 4.3-2.61 5.24-5.1 5.51.4.35.76 1.02.76 2.06V22c0 .3.2.64.77.53A11.1 11.1 0 0 0 12 .9Z"/></svg>
+          {{findGithub}}
+        </a>
+      </section>
+    </main>
+
+    <footer class="site-footer wrap">
+      <a class="footer-brand" href="#top" aria-label="{{backTopLabel}}"><img class="footer-logo" src="/assets/ltm-logo-monochrome.svg" width="155" height="58" alt=""></a>
+      <p>{{footerCopyright}}</p>
+      <a href="https://github.com/LateralThinkingMachine">GitHub</a>
+    </footer>
+  </body>
+</html>

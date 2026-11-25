@@ -52,17 +52,18 @@ After copy changes, run the generator and focused checks, then inspect the heade
 
 ## Rotating headline
 
-[`headline.js`](headline.js) cycles through seven translated hero messages, in this order:
+[`headline.js`](headline.js) cycles through eight translated hero messages, in this order:
 
 1. Bring your own AI. Keep your knowledge.
-2. One workspace for people and AI agents.
-3. Revisit past decisions with new evidence.
-4. Continue the work. Keep the context.
-5. Turn experience into reusable knowledge.
-6. Keep decisions connected to their evidence.
-7. A native temporal graph database for AI agents.
+2. Help agents communicate with other agents.
+3. One workspace for people and AI agents.
+4. Revisit past decisions with new evidence.
+5. Continue the work. Keep the context.
+6. Turn experience into reusable knowledge.
+7. Keep decisions connected to their evidence.
+8. A native temporal graph database for AI agents.
 
-Each has a six-second reading interval, fading out and then in over 240 ms each so letters never overlap. All messages occupy the same CSS grid cell so the tallest phrase reserves space at every screen size. The heading has one stable accessible text containing all seven messages; changes are not announced repeatedly to screen readers.
+Each has a six-second reading interval, fading out and then in over 240 ms each so letters never overlap. All messages occupy the same CSS grid cell so the tallest phrase reserves space at every screen size. The heading has one stable accessible text containing all eight messages; changes are not announced repeatedly to screen readers.
 
 There is no visible playback control. Rotation pauses while a mouse or pen hovers over the headline or keyboard focus is within the hero copy. Offscreen and hidden-page states also suspend the timer; returning starts a fresh six-second reading interval. Reduced-motion preferences keep the first headline static. Without JavaScript, the first headline remains visible. Check all messages at desktop and mobile widths and verify automatic pause/resume before publishing.
 

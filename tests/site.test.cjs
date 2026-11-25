@@ -58,7 +58,7 @@ test("all eight locales have complete, nonempty translations rather than English
   assert.match(copy(locales[3]).heroDescription, /\p{Script=Hangul}/u);
 });
 
-test("every public route contains its translated text and seven accessible headline messages without JavaScript", () => {
+test("every public route contains its translated text and eight accessible headline messages without JavaScript", () => {
   const templateKeys = new Set([...read("templates/index.html").matchAll(/\{\{(\w+)\}\}/g)].map(match => match[1]));
   for (const locale of locales) {
     const html = page(locale);
@@ -73,9 +73,9 @@ test("every public route contains its translated text and seven accessible headl
     assert.equal(headings.length, 1, `${locale.tag}: one main heading`);
     const spans = elements(headings[0].body, "span");
     const visual = spans.filter(span => hasClass(span.attrs, "headline-message"));
-    const messages = Array.from({ length: 7 }, (_, index) => translation[`headline${index + 1}`]);
+    const messages = Array.from({ length: 8 }, (_, index) => translation[`headline${index + 1}`]);
     assert.deepEqual(visual.map(span => text(span.body)), messages, `${locale.tag}: rotation content`);
-    assert.deepEqual(visual.map(span => Object.hasOwn(span.attrs, "data-active")), [true, false, false, false, false, false, false], `${locale.tag}: static first message`);
+    assert.deepEqual(visual.map(span => Object.hasOwn(span.attrs, "data-active")), [true, false, false, false, false, false, false, false], `${locale.tag}: static first message`);
     assert.ok(visual.every(span => span.attrs["aria-hidden"] === "true"));
     const accessible = spans.filter(span => hasClass(span.attrs, "visually-hidden"));
     assert.equal(accessible.length, 1);

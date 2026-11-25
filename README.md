@@ -25,7 +25,9 @@ Open `http://127.0.0.1:8767`. Check desktop and mobile layouts, keyboard focus, 
 
 The supplied original 6000 × 2000 banner is retained in `assets/` for social previews. The page itself uses native text and inline vector icons. Lucide's database and orbit icons retain the [upstream license notices](assets/LUCIDE-LICENSE.txt).
 
-The footer uses [`assets/ltm-logo-monochrome.svg`](assets/ltm-logo-monochrome.svg), a vector interpretation of the supplied brand sheet's monochrome logo: three overlapping rounded tiles with white separation lines and a rounded lowercase `ltm` wordmark, in a single navy ink. [`favicon.svg`](favicon.svg) uses the same tile geometry. Both remain sharp at any resolution, and CSS preserves the lockup's proportions. Keep logo edits in these SVG sources; the full-color social-preview banner is a separate supplied asset.
+The footer uses [`assets/ltm-logo-monochrome.svg`](assets/ltm-logo-monochrome.svg), a vector interpretation of the supplied brand sheet's monochrome logo: three overlapping rounded tiles with white separation lines and a rounded lowercase `ltm` wordmark, in a single navy ink. The SVG remains sharp at any resolution, and CSS preserves the lockup's proportions. Keep logo edits in the SVG source; the full-color social-preview banner is a separate supplied asset.
+
+The browser tab icon uses [`favicon-layered-l.png`](favicon-layered-l.png), the supplied “Layered Three-Color L Icon.png” copied unchanged at 1254 × 1254 pixels with transparency. The shared page template and the 404 page reference this PNG, so all language routes use the same three-color icon. Its distinct filename separates it from the previously cached monochrome favicon.
 
 ## Header and languages
 

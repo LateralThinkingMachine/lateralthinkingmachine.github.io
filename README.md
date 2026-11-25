@@ -2,9 +2,9 @@
 
 The public landing page for Lateral Thinking Machines, AtoposDB, and Enny. A small static website hosted on GitHub Pages, with no runtime dependencies, external fonts, analytics, or third-party scripts. A dependency-free Node script generates the eight language pages before publication. Small client-side scripts provide the expandable header, Enny's optional cursor response, and the rotating headline.
 
-The page leads with AtoposDB's product promise: agents build expertise as they work. Supporting copy explains continuity across sessions, channels, and providers; evidence, decisions, and corrections; and scoped knowledge reuse. The technical description identifies the native temporal graph database. Engine, integrated components, and collaborative workspace are stated as development directions, not released offerings. Keep the hero, product copy, and search/social metadata consistent with this positioning.
+The page leads with AtoposDB's product promise: bring your own AI and keep your knowledge. Supporting copy explains continuity across sessions, channels, and providers; evidence, decisions, and corrections; and scoped knowledge reuse. The technical description identifies the native temporal graph database. Engine, integrated components, and collaborative workspace are stated as development directions, not released offerings. Keep the hero, product copy, and search/social metadata consistent with this positioning.
 
-The landing page uses a centered, single-column hero: Enny, the product eyebrow, headline, supporting copy, and calls to action share a common center. Supporting prose and the final call to action use the same alignment, with restrained reading widths. AtoposDB and Enny remain in two centered, borderless product columns on larger screens and stack on mobile. The former illustrative diagram is intentionally removed.
+The landing page uses a centered, single-column hero: Enny, the product eyebrow (“AtoposDB · The database for your AI”), headline, supporting copy, and calls to action share a common center. Supporting prose and the final call to action use the same alignment, with restrained reading widths. AtoposDB and Enny remain in two centered, borderless product columns on larger screens and stack on mobile. The former illustrative diagram is intentionally removed.
 
 ## Development
 
@@ -52,7 +52,17 @@ After copy changes, run the generator and focused checks, then inspect the heade
 
 ## Rotating headline
 
-[`headline.js`](headline.js) cycles through three hero messages: “Your agents build expertise as they work,” “Help agents communicate with other agents,” and “No more ‘Handover’ documents.” Each has a six-second reading interval, fading out and then in over 240 ms each so letters never overlap. All messages occupy the same CSS grid cell so the tallest phrase reserves space at every screen size. The heading has one stable accessible text containing all three messages; changes are not announced repeatedly to screen readers.
+[`headline.js`](headline.js) cycles through seven translated hero messages, in this order:
+
+1. Bring your own AI. Keep your knowledge.
+2. One workspace for people and AI agents.
+3. Revisit past decisions with new evidence.
+4. Continue the work. Keep the context.
+5. Turn experience into reusable knowledge.
+6. Keep decisions connected to their evidence.
+7. A native temporal graph database for AI agents.
+
+Each has a six-second reading interval, fading out and then in over 240 ms each so letters never overlap. All messages occupy the same CSS grid cell so the tallest phrase reserves space at every screen size. The heading has one stable accessible text containing all seven messages; changes are not announced repeatedly to screen readers.
 
 There is no visible playback control. Rotation pauses while a mouse or pen hovers over the headline or keyboard focus is within the hero copy. Offscreen and hidden-page states also suspend the timer; returning starts a fresh six-second reading interval. Reduced-motion preferences keep the first headline static. Without JavaScript, the first headline remains visible. Check all messages at desktop and mobile widths and verify automatic pause/resume before publishing.
 

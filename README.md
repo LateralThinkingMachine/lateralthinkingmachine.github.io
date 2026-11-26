@@ -6,7 +6,7 @@ The page leads with AtoposDB's product promise: bring your own AI and keep your 
 
 The landing page uses a centered, single-column hero: Enny, the product eyebrow (“AtoposDB · Purpose-built database for AI memory engineering”), headline, supporting copy, and calls to action share a common center. The eyebrow wraps naturally on small screens without reducing its font size. Supporting prose and the final call to action use the same alignment, with restrained reading widths. AtoposDB and Enny remain in two centered, borderless product columns on larger screens and stack on mobile. The former illustrative diagram is intentionally removed.
 
-The AtoposDB product section introduces “Built for AI memory engineering,” explaining the native temporal graph database's role in preserving, retrieving, sharing, and correcting agent knowledge while connecting decisions to evidence. Within “Why AtoposDB,” four subsections follow the existing introduction: learn from the shape of information, reconstruct the context behind past decisions, give agents situational awareness, and share memory for AI agents. The shape subsection includes both the accessible explanation of planned graph embeddings and representation learning and the technical description of graph, subgraph, and history representations. It connects pattern comparison to relevant past experience while retaining context and evidence as the basis for deciding what applies. Reconstruction is grounded in recorded knowledge, decisions, and evidence. Situational awareness connects that history to understanding changes and deciding what to do next. Collaboration explains project knowledge access, distinct individual and project memory, and a common understanding built from knowledge, decisions, and evidence. All headings and supporting copy are translated into every supported language.
+The AtoposDB product section introduces “Built for AI memory engineering,” explaining the native temporal graph database's role in preserving, retrieving, sharing, and correcting agent knowledge while connecting decisions to evidence. Within “Why AtoposDB,” five subsections follow the existing introduction: learn from the shape of information, reconstruct the context behind past decisions, give agents situational awareness, explore “what if?”, and share memory for AI agents. The shape subsection includes both the accessible explanation of planned graph embeddings and representation learning and the technical description of graph, subgraph, and history representations. It connects pattern comparison to relevant past experience while retaining context and evidence as the basis for deciding what applies. Reconstruction is grounded in recorded knowledge, decisions, and evidence. Situational awareness connects that history to understanding changes and deciding what to do next. The scenario subsection includes an introduction about recorded experience, the planned foundation for thought experiments, scenario planning and predictive modeling, and technical copy about preserving inputs, model versions and results. Keep simulated outcomes distinct from observed results and retain the development framing in every translation. Collaboration explains project knowledge access, distinct individual and project memory, and a common understanding built from knowledge, decisions, and evidence. All headings and supporting copy are translated into every supported language.
 
 ## Development
 
@@ -56,7 +56,7 @@ After copy changes, run the generator and focused checks, then inspect the heade
 
 ## Rotating headline
 
-[`headline.js`](headline.js) cycles through twelve translated hero messages, in this order:
+[`headline.js`](headline.js) cycles through thirteen translated hero messages, in this order:
 
 1. Bring your own AI. Keep your knowledge.
 2. Help agents communicate with other agents.
@@ -70,8 +70,9 @@ After copy changes, run the generator and focused checks, then inspect the heade
 10. A native temporal graph database for AI agents.
 11. Memory for AI agents.
 12. Help your agents understand what’s happening—and what changed.
+13. Help your agents explore “what if?”
 
-Each has a six-second reading interval, fading out and then in over 240 ms each so letters never overlap. All messages occupy the same CSS grid cell so the tallest phrase reserves space at every screen size. The heading has one stable accessible text containing all twelve messages; changes are not announced repeatedly to screen readers.
+Each has a six-second reading interval, fading out and then in over 240 ms each so letters never overlap. All messages occupy the same CSS grid cell so the tallest phrase reserves space at every screen size. The heading has one stable accessible text containing all thirteen messages; changes are not announced repeatedly to screen readers.
 
 There is no visible playback control. Rotation pauses while a mouse or pen hovers over the headline or keyboard focus is within the hero copy. Offscreen and hidden-page states also suspend the timer; returning starts a fresh six-second reading interval. Reduced-motion preferences keep the first headline static. Without JavaScript, the first headline remains visible. Check all messages at desktop and mobile widths and verify automatic pause/resume before publishing.
 

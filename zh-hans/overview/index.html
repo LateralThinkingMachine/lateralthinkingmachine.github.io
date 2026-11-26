@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+    <title>AtoposDB — 技术概览</title>
+    <meta name="description" content="了解AtoposDB规划中的时态图模型、智能体共享记忆、证据历史、图表征和情景工作流程。">
+    <link rel="canonical" href="https://lateralthinkingmachines.ai/zh-hans/overview/">
+    <link rel="alternate" hreflang="en" href="https://lateralthinkingmachines.ai/overview/">
+    <link rel="alternate" hreflang="ja" href="https://lateralthinkingmachines.ai/ja/overview/">
+    <link rel="alternate" hreflang="zh-Hans" href="https://lateralthinkingmachines.ai/zh-hans/overview/">
+    <link rel="alternate" hreflang="ko" href="https://lateralthinkingmachines.ai/ko/overview/">
+    <link rel="alternate" hreflang="es" href="https://lateralthinkingmachines.ai/es/overview/">
+    <link rel="alternate" hreflang="fr" href="https://lateralthinkingmachines.ai/fr/overview/">
+    <link rel="alternate" hreflang="de" href="https://lateralthinkingmachines.ai/de/overview/">
+    <link rel="alternate" hreflang="pt-BR" href="https://lateralthinkingmachines.ai/pt-br/overview/">
+    <link rel="alternate" hreflang="x-default" href="https://lateralthinkingmachines.ai/overview/">
+    <meta property="og:locale" content="zh_CN">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Lateral Thinking Machines">
+    <meta property="og:title" content="AtoposDB — 技术概览">
+    <meta property="og:description" content="了解AtoposDB规划中的时态图模型、智能体共享记忆、证据历史、图表征和情景工作流程。">
+    <meta property="og:url" content="https://lateralthinkingmachines.ai/zh-hans/overview/">
+    <meta property="og:image" content="https://lateralthinkingmachines.ai/assets/ltm-banner-6000x2000.png">
+    <meta property="og:image:alt" content="Lateral Thinking Machines — 面向AI智能体的长期记忆与上下文基础设施">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AtoposDB — 技术概览">
+    <meta name="twitter:description" content="了解AtoposDB规划中的时态图模型、智能体共享记忆、证据历史、图表征和情景工作流程。">
+    <meta name="twitter:image" content="https://lateralthinkingmachines.ai/assets/ltm-banner-6000x2000.png">
+    <link rel="icon" type="image/png" sizes="1254x1254" href="/favicon-layered-l.png">
+    <link rel="stylesheet" href="/styles.css?v=20261126-grid">
+    <script src="/navigation.js" defer></script>
+    
+  </head>
+  <body id="top">
+    <a class="skip-link" href="#main">跳转到正文</a>
+    <div class="header-backdrop" aria-hidden="true"></div>
+    <header class="global-header" data-site-header>
+      <details class="header-disclosure menu-disclosure" data-header-panel="menu" name="header-panels">
+        <summary class="header-pill menu-trigger" data-panel-trigger aria-controls="main-menu">
+          <img class="header-logo" src="/assets/ltm-logo-light.svg" width="310" height="116" alt="Lateral Thinking Machines">
+          <svg class="menu-lines" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+          <svg class="menu-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
+          <span class="visually-hidden" data-trigger-label data-open-label="打开菜单" data-close-label="关闭菜单">打开菜单</span>
+        </summary>
+        <div class="header-panel nav-panel" id="main-menu" data-panel-content>
+          <nav class="menu-links" aria-label="主导航">
+            <a class="menu-home" href="/zh-hans/" >首页</a>
+            <a href="/zh-hans/#atoposdb">AtoposDB</a>
+            <a href="/zh-hans/#enny">Enny</a>
+            <a href="/zh-hans/#why-memory">为什么选择AtoposDB</a>
+            <a href="/zh-hans/overview/" aria-current="page">技术概览</a>
+            <a class="menu-github" href="https://github.com/LateralThinkingMachine">GitHub</a>
+          </nav>
+          <div class="menu-overview">
+            <div class="menu-intro">
+              <h2>Lateral Thinking Machines</h2>
+              <p>我们正在构建基础设施，让人与AI智能体能够将有用的知识带入后续工作。</p>
+            </div>
+            <a class="menu-feature" href="/zh-hans/overview/">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14a8 3 0 0 0 16 0V5M4 12a8 3 0 0 0 16 0"/></svg>
+              <div><p class="menu-feature-eyebrow">AtoposDB</p><h3>让经验成为专业知识。</h3><p>保留智能体持续工作过程中的证据、决策与修正。</p><span class="menu-feature-link">阅读技术概览</span></div>
+            </a>
+          </div>
+        </div>
+      </details>
+      <details class="header-disclosure language-disclosure" data-header-panel="languages" name="header-panels">
+        <summary class="header-pill language-trigger" data-panel-trigger aria-controls="language-options">
+          <svg class="globe-icon" width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18M4.5 7.5h15M4.5 16.5h15"/></svg>
+          <svg class="menu-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
+          <span class="visually-hidden" data-trigger-label data-open-label="选择语言" data-close-label="关闭语言选择器">选择语言</span>
+        </summary>
+        <section class="header-panel language-panel" id="language-options" data-panel-content aria-labelledby="language-title">
+          <h2 id="language-title">选择您的语言</h2>
+          <p class="language-intro">用您的语言，了解我们的工作。</p>
+          <ul class="language-grid"><li><a href="/overview/" lang="en" hreflang="en"><span class="language-name">English</span><span class="language-detail" lang="en">International</span></a></li>
+            <li><a href="/ja/overview/" lang="ja" hreflang="ja"><span class="language-name">日本語</span><span class="language-detail" lang="en">Japanese</span></a></li>
+            <li><a href="/zh-hans/overview/" lang="zh-Hans" hreflang="zh-Hans" aria-current="page"><span class="language-name">简体中文</span><span class="language-detail" lang="en">Simplified Chinese</span><span class="language-current" lang="zh-Hans">当前语言</span></a></li>
+            <li><a href="/ko/overview/" lang="ko" hreflang="ko"><span class="language-name">한국어</span><span class="language-detail" lang="en">Korean</span></a></li>
+            <li><a href="/es/overview/" lang="es" hreflang="es"><span class="language-name">Español</span><span class="language-detail" lang="en">Spanish</span></a></li>
+            <li><a href="/fr/overview/" lang="fr" hreflang="fr"><span class="language-name">Français</span><span class="language-detail" lang="en">French</span></a></li>
+            <li><a href="/de/overview/" lang="de" hreflang="de"><span class="language-name">Deutsch</span><span class="language-detail" lang="en">German</span></a></li>
+            <li><a href="/pt-br/overview/" lang="pt-BR" hreflang="pt-BR"><span class="language-name">Português</span><span class="language-detail" lang="pt-BR">Brasil</span></a></li></ul>
+        </section>
+      </details>
+    </header>
+
+    <main id="main" class="overview-main">
+      <header class="overview-heading wrap">
+        <a class="text-link" href="/zh-hans/">返回首页</a>
+        <p class="eyebrow">技术概览</p>
+        <h1>面向不断演变的知识的数据库。</h1>
+        <p>我们正在将AtoposDB开发为面向AI记忆工程的原生时态图数据库。本概览介绍设想中的模型和工作流程，并明确区分开发方向与当前公开可用的内容。</p>
+      </header>
+      <nav class="overview-toc wrap" aria-label="本概览内容">
+        <h2>本概览内容</h2>
+        <ul>
+          <li><a href="#continuity-title">工作继续，上下文延续。</a></li>
+          <li><a href="#collaboration-title">AI智能体的共享记忆。</a></li>
+          <li><a href="#reconstruction-title">重建过去的决策。</a></li>
+          <li><a href="#awareness-title">赋予智能体态势感知能力。</a></li>
+          <li><a href="#shape-title">从信息的结构中学习。</a></li>
+          <li><a href="#scenarios-title">帮助智能体探索“如果……会怎样？”</a></li>
+          <li><a href="#development-status">开发状态</a></li>
+        </ul>
+      </nav>
+      <div class="overview-body wrap">
+        <section class="overview-section" aria-labelledby="model-title">
+          <h2 id="model-title">将知识与其上下文和历史相连接。</h2>
+          <p>设想中的模型将记录的知识、决策、事件和证据相连接。历史视图有助于区分当时的记录与后续修正。个体和项目两个作用域让知识共享的范围更加明确。</p>
+          <p>AtoposDB是数据库基础层。解释信息并生成预测的是智能体和模型；我们正在设计数据库，以保存检查这些工作所需的上下文、来源与演变记录，以及结果。</p>
+          <p>人与智能体可以积累知识，将其带入不同会话和服务提供商的环境，在项目中共享，并查看后续证据如何改变先前的结论。</p>
+          <p>我们正在将AtoposDB开发为数据库引擎、可集成的组件，以及完整的协作工作空间。</p>
+        </section>
+        <section class="overview-section" aria-labelledby="continuity-title">
+          <h2 id="continuity-title">工作继续，上下文延续。</h2>
+          <p>将记录下来的知识与产生它的工作相连接，让人与智能体能够跨会话、渠道和服务提供商接续工作。保留证据、决策和修正，让经验转化为可复用的专业知识。</p>
+          <p>有用的工作连续性应包含记录的来源、作用域和历史。检索相关记忆时，也应能查看支撑它的证据和后续修正。</p>
+        </section>
+        <section class="overview-section" aria-labelledby="collaboration-title">
+          <h2 id="collaboration-title">AI智能体的共享记忆。</h2>
+          <p>让智能体访问所需的项目知识。共享上下文、决策和证据，同时明确区分个体记忆与项目记忆。</p>
+          <p>连接知识、决策和证据，让智能体基于共同的理解开展工作。</p>
+        </section>
+        <section class="overview-section" aria-labelledby="reconstruction-title">
+          <h2 id="reconstruction-title">重建过去决策背后的上下文。</h2>
+          <p>追溯以往工作中记录的知识、决策和证据。重建当时已知的信息，再查看后续证据如何改变了结论。</p>
+        </section>
+        <section class="overview-section" aria-labelledby="awareness-title">
+          <h2 id="awareness-title">赋予AI智能体所需的态势感知能力。</h2>
+          <p>将智能体与项目上下文、过去的决策和证据相连接，帮助它们理解发生了哪些变化，并决定下一步该做什么。</p>
+        </section>
+        <section class="overview-section" aria-labelledby="shape-title">
+          <h2 id="shape-title">从信息的结构中学习。</h2>
+          <p>我们正在开发AtoposDB，以支持对相互关联的知识及其历史进行图嵌入和表征学习。比较关系和事件中的模式，找到相关的过往经验，再查看其背后的上下文和证据，判断哪些经验适用。</p>
+          <p>构建图、子图和历史记录的表征，探索结构相似性、检索相关案例，并开发能够从关联信息中学习的模型。</p>
+        </section>
+        <section class="overview-section" aria-labelledby="scenarios-title">
+          <h2 id="scenarios-title">帮助智能体探索“如果……会怎样？”</h2>
+          <p>智能体可以利用记录下来的经验，探索可能的未来并比较不同选择。</p>
+          <p>我们正在将AtoposDB构建为AI思想实验、情景规划和预测建模的基础。将不同情景与各自的假设、历史上下文、证据和模型生成的结果关联起来。在明确区分模拟结果与观测结果的前提下比较各种可能性，并随着新证据的出现重新审视预测。</p>
+          <p>保留情景输入、模型版本和结果，以便检查和比较实验，并对照实际结果进行评估。</p>
+        </section>
+        <details class="message-library">
+          <summary>AtoposDB背后的理念</summary>
+          <p>这些文字描述了我们开发工作的目标。您可以按自己的节奏逐一了解。</p>
+          <ul>
+            <li>自选AI，留住知识。</li>
+            <li>帮助智能体彼此沟通。</li>
+            <li>人与AI智能体共用的工作空间。</li>
+            <li>依据新证据，重新审视过去的决策。</li>
+            <li>为智能体提供共同的沟通语言。</li>
+            <li>帮助智能体理解彼此的工作上下文。</li>
+            <li>工作继续，上下文延续。</li>
+            <li>将经验转化为可复用的知识。</li>
+            <li>让决策始终关联其证据。</li>
+            <li>面向AI智能体的原生时态图数据库。</li>
+            <li>面向AI智能体的记忆。</li>
+            <li>帮助智能体理解正在发生什么，以及发生了哪些变化。</li>
+            <li>帮助智能体探索“如果……会怎样？”</li>
+          </ul>
+        </details>
+      </div>
+      <section class="development wrap section-rule" id="development-status" aria-labelledby="development-title">
+        <div class="section-heading">
+          <p class="eyebrow">开发状态</p>
+          <h2 id="development-title">现在可以了解什么。</h2>
+        </div>
+        <div class="status-grid">
+          <div><h3>现已公开</h3><p>产品与技术概览、工作流程示例，以及我们的开发方向。</p></div>
+          <div><h3>开发中</h3><p>数据库引擎、集成组件和协作工作空间正在开发中。图表征学习和情景工作流程是我们的开发方向。</p></div>
+        </div>
+        <p class="status-note">本网站介绍的是我们正在开发的产品。引擎下载和可运行示例开放后，我们会在这里提供链接。</p>
+        <a class="text-link" href="https://github.com/LateralThinkingMachine/atoposdb/blob/main/ROADMAP.md">阅读开发路线图</a>
+      </section>
+
+      <section class="follow wrap section-rule" aria-labelledby="follow-title">
+        <div><h2 id="follow-title">积累能够延续的专业知识。</h2><p>了解设计、关注开发进展，或分享您希望我们考虑的使用场景。</p></div>
+        <div class="follow-actions">
+          <a class="button button-primary" href="https://github.com/LateralThinkingMachine/atoposdb">关注开发进展</a>
+          <a class="text-link" href="/zh-hans/">返回首页</a>
+          <a class="text-link" href="https://github.com/LateralThinkingMachine/atoposdb/issues">在GitHub上提问</a>
+        </div>
+      </section>
+    </main>
+
+
+    <footer class="site-footer wrap">
+      <a class="footer-brand" href="#top" aria-label="Lateral Thinking Machines，返回顶部"><img class="footer-logo" src="/assets/ltm-logo-monochrome.svg" width="155" height="58" alt=""></a>
+      <p>© 2026 Lateral Thinking Machines</p>
+      <a href="/zh-hans/overview/">技术概览</a>
+      <a href="https://github.com/LateralThinkingMachine">GitHub</a>
+    </footer>
+  </body>
+</html>

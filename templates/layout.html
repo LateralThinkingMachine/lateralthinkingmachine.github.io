@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="{{lang}}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+    <title>{{pageTitle}}</title>
+    <meta name="description" content="{{metaDescription}}">
+    <link rel="canonical" href="{{canonical}}">
+    {{alternateLinks}}
+    <meta property="og:locale" content="{{ogLocale}}">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Lateral Thinking Machines">
+    <meta property="og:title" content="{{ogTitle}}">
+    <meta property="og:description" content="{{ogDescription}}">
+    <meta property="og:url" content="{{canonical}}">
+    <meta property="og:image" content="https://lateralthinkingmachines.ai/assets/ltm-banner-6000x2000.png">
+    <meta property="og:image:alt" content="{{bannerAlt}}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{pageTitle}}">
+    <meta name="twitter:description" content="{{twitterDescription}}">
+    <meta name="twitter:image" content="https://lateralthinkingmachines.ai/assets/ltm-banner-6000x2000.png">
+    <link rel="icon" type="image/png" sizes="1254x1254" href="/favicon-layered-l.png">
+    <link rel="stylesheet" href="/styles.css?v=20261126-grid">
+    <script src="/navigation.js" defer></script>
+    {{pageScripts}}
+  </head>
+  <body id="top">
+    <a class="skip-link" href="#main">{{skip}}</a>
+    <div class="header-backdrop" aria-hidden="true"></div>
+    <header class="global-header" data-site-header>
+      <details class="header-disclosure menu-disclosure" data-header-panel="menu" name="header-panels">
+        <summary class="header-pill menu-trigger" data-panel-trigger aria-controls="main-menu">
+          <img class="header-logo" src="/assets/ltm-logo-light.svg" width="310" height="116" alt="Lateral Thinking Machines">
+          <svg class="menu-lines" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+          <svg class="menu-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
+          <span class="visually-hidden" data-trigger-label data-open-label="{{openMenu}}" data-close-label="{{closeMenu}}">{{openMenu}}</span>
+        </summary>
+        <div class="header-panel nav-panel" id="main-menu" data-panel-content>
+          <nav class="menu-links" aria-label="{{mainNavLabel}}">
+            <a class="menu-home" href="{{homeUrl}}" {{homeCurrent}}>{{menuHome}}</a>
+            <a href="{{homeUrl}}#atoposdb">AtoposDB</a>
+            <a href="{{homeUrl}}#enny">Enny</a>
+            <a href="{{homeUrl}}#why-memory">{{menuWhy}}</a>
+            <a href="{{overviewUrl}}" {{overviewCurrent}}>{{overviewNav}}</a>
+            <a class="menu-github" href="https://github.com/LateralThinkingMachine">{{menuGithub}}</a>
+          </nav>
+          <div class="menu-overview">
+            <div class="menu-intro">
+              <h2>{{menuTagline}}</h2>
+              <p>{{menuDescription}}</p>
+            </div>
+            <a class="menu-feature" href="{{overviewUrl}}">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14a8 3 0 0 0 16 0V5M4 12a8 3 0 0 0 16 0"/></svg>
+              <div><p class="menu-feature-eyebrow">{{menuFeatureEyebrow}}</p><h3>{{menuFeatureTitle}}</h3><p>{{menuFeatureDescription}}</p><span class="menu-feature-link">{{readOverview}}</span></div>
+            </a>
+          </div>
+        </div>
+      </details>
+      <details class="header-disclosure language-disclosure" data-header-panel="languages" name="header-panels">
+        <summary class="header-pill language-trigger" data-panel-trigger aria-controls="language-options">
+          <svg class="globe-icon" width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18M4.5 7.5h15M4.5 16.5h15"/></svg>
+          <svg class="menu-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
+          <span class="visually-hidden" data-trigger-label data-open-label="{{languageLabel}}" data-close-label="{{closeLanguages}}">{{languageLabel}}</span>
+        </summary>
+        <section class="header-panel language-panel" id="language-options" data-panel-content aria-labelledby="language-title">
+          <h2 id="language-title">{{languageDialogTitle}}</h2>
+          <p class="language-intro">{{languageIntro}}</p>
+          <ul class="language-grid">{{languageLinks}}</ul>
+        </section>
+      </details>
+    </header>
+
+{{mainContent}}
+
+    <footer class="site-footer wrap">
+      <a class="footer-brand" href="#top" aria-label="{{backTopLabel}}"><img class="footer-logo" src="/assets/ltm-logo-monochrome.svg" width="155" height="58" alt=""></a>
+      <p>{{footerCopyright}}</p>
+      <a href="{{overviewUrl}}">{{overviewNav}}</a>
+      <a href="https://github.com/LateralThinkingMachine">GitHub</a>
+    </footer>
+  </body>
+</html>

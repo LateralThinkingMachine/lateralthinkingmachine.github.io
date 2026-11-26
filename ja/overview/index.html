@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+    <title>AtoposDB — 技術概要</title>
+    <meta name="description" content="AtoposDBで計画しているテンポラルグラフモデル、エージェント間の共有記憶、根拠の履歴、グラフ表現、シナリオを扱うワークフローをご紹介します。">
+    <link rel="canonical" href="https://lateralthinkingmachines.ai/ja/overview/">
+    <link rel="alternate" hreflang="en" href="https://lateralthinkingmachines.ai/overview/">
+    <link rel="alternate" hreflang="ja" href="https://lateralthinkingmachines.ai/ja/overview/">
+    <link rel="alternate" hreflang="zh-Hans" href="https://lateralthinkingmachines.ai/zh-hans/overview/">
+    <link rel="alternate" hreflang="ko" href="https://lateralthinkingmachines.ai/ko/overview/">
+    <link rel="alternate" hreflang="es" href="https://lateralthinkingmachines.ai/es/overview/">
+    <link rel="alternate" hreflang="fr" href="https://lateralthinkingmachines.ai/fr/overview/">
+    <link rel="alternate" hreflang="de" href="https://lateralthinkingmachines.ai/de/overview/">
+    <link rel="alternate" hreflang="pt-BR" href="https://lateralthinkingmachines.ai/pt-br/overview/">
+    <link rel="alternate" hreflang="x-default" href="https://lateralthinkingmachines.ai/overview/">
+    <meta property="og:locale" content="ja_JP">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Lateral Thinking Machines">
+    <meta property="og:title" content="AtoposDB — 技術概要">
+    <meta property="og:description" content="AtoposDBで計画しているテンポラルグラフモデル、エージェント間の共有記憶、根拠の履歴、グラフ表現、シナリオを扱うワークフローをご紹介します。">
+    <meta property="og:url" content="https://lateralthinkingmachines.ai/ja/overview/">
+    <meta property="og:image" content="https://lateralthinkingmachines.ai/assets/ltm-banner-6000x2000.png">
+    <meta property="og:image:alt" content="Lateral Thinking Machines — AIエージェントのための長期記憶とコンテキストの基盤">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AtoposDB — 技術概要">
+    <meta name="twitter:description" content="AtoposDBで計画しているテンポラルグラフモデル、エージェント間の共有記憶、根拠の履歴、グラフ表現、シナリオを扱うワークフローをご紹介します。">
+    <meta name="twitter:image" content="https://lateralthinkingmachines.ai/assets/ltm-banner-6000x2000.png">
+    <link rel="icon" type="image/png" sizes="1254x1254" href="/favicon-layered-l.png">
+    <link rel="stylesheet" href="/styles.css?v=20261126-grid">
+    <script src="/navigation.js" defer></script>
+    
+  </head>
+  <body id="top">
+    <a class="skip-link" href="#main">本文へ移動</a>
+    <div class="header-backdrop" aria-hidden="true"></div>
+    <header class="global-header" data-site-header>
+      <details class="header-disclosure menu-disclosure" data-header-panel="menu" name="header-panels">
+        <summary class="header-pill menu-trigger" data-panel-trigger aria-controls="main-menu">
+          <img class="header-logo" src="/assets/ltm-logo-light.svg" width="310" height="116" alt="Lateral Thinking Machines">
+          <svg class="menu-lines" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+          <svg class="menu-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
+          <span class="visually-hidden" data-trigger-label data-open-label="メニューを開く" data-close-label="メニューを閉じる">メニューを開く</span>
+        </summary>
+        <div class="header-panel nav-panel" id="main-menu" data-panel-content>
+          <nav class="menu-links" aria-label="メインナビゲーション">
+            <a class="menu-home" href="/ja/" >ホーム</a>
+            <a href="/ja/#atoposdb">AtoposDB</a>
+            <a href="/ja/#enny">Enny</a>
+            <a href="/ja/#why-memory">AtoposDBの意義</a>
+            <a href="/ja/overview/" aria-current="page">技術概要</a>
+            <a class="menu-github" href="https://github.com/LateralThinkingMachine">GitHub</a>
+          </nav>
+          <div class="menu-overview">
+            <div class="menu-intro">
+              <h2>Lateral Thinking Machines</h2>
+              <p>人とAIエージェントが有用な知識を次の仕事へ引き継ぐための基盤を、私たちはつくっています。</p>
+            </div>
+            <a class="menu-feature" href="/ja/overview/">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14a8 3 0 0 0 16 0V5M4 12a8 3 0 0 0 16 0"/></svg>
+              <div><p class="menu-feature-eyebrow">AtoposDB</p><h3>経験が、専門知識になる。</h3><p>エージェントが継続する仕事の根拠、判断、修正を保存します。</p><span class="menu-feature-link">技術概要を読む</span></div>
+            </a>
+          </div>
+        </div>
+      </details>
+      <details class="header-disclosure language-disclosure" data-header-panel="languages" name="header-panels">
+        <summary class="header-pill language-trigger" data-panel-trigger aria-controls="language-options">
+          <svg class="globe-icon" width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18M4.5 7.5h15M4.5 16.5h15"/></svg>
+          <svg class="menu-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
+          <span class="visually-hidden" data-trigger-label data-open-label="言語を選択" data-close-label="言語選択を閉じる">言語を選択</span>
+        </summary>
+        <section class="header-panel language-panel" id="language-options" data-panel-content aria-labelledby="language-title">
+          <h2 id="language-title">言語を選択</h2>
+          <p class="language-intro">私たちの取り組みを、あなたの言語で。</p>
+          <ul class="language-grid"><li><a href="/overview/" lang="en" hreflang="en"><span class="language-name">English</span><span class="language-detail" lang="en">International</span></a></li>
+            <li><a href="/ja/overview/" lang="ja" hreflang="ja" aria-current="page"><span class="language-name">日本語</span><span class="language-detail" lang="en">Japanese</span><span class="language-current" lang="ja">現在の言語</span></a></li>
+            <li><a href="/zh-hans/overview/" lang="zh-Hans" hreflang="zh-Hans"><span class="language-name">简体中文</span><span class="language-detail" lang="en">Simplified Chinese</span></a></li>
+            <li><a href="/ko/overview/" lang="ko" hreflang="ko"><span class="language-name">한국어</span><span class="language-detail" lang="en">Korean</span></a></li>
+            <li><a href="/es/overview/" lang="es" hreflang="es"><span class="language-name">Español</span><span class="language-detail" lang="en">Spanish</span></a></li>
+            <li><a href="/fr/overview/" lang="fr" hreflang="fr"><span class="language-name">Français</span><span class="language-detail" lang="en">French</span></a></li>
+            <li><a href="/de/overview/" lang="de" hreflang="de"><span class="language-name">Deutsch</span><span class="language-detail" lang="en">German</span></a></li>
+            <li><a href="/pt-br/overview/" lang="pt-BR" hreflang="pt-BR"><span class="language-name">Português</span><span class="language-detail" lang="pt-BR">Brasil</span></a></li></ul>
+        </section>
+      </details>
+    </header>
+
+    <main id="main" class="overview-main">
+      <header class="overview-heading wrap">
+        <a class="text-link" href="/ja/">ホームページに戻る</a>
+        <p class="eyebrow">技術概要</p>
+        <h1>変化する知識のためのデータベース。</h1>
+        <p>AtoposDBは、AIメモリエンジニアリングのためのネイティブ・テンポラルグラフデータベースとして開発を進めています。この概要では、想定するモデルとワークフローを、現在公開している内容と今後の開発の方向性を区別して説明します。</p>
+      </header>
+      <nav class="overview-toc wrap" aria-label="この概要の内容">
+        <h2>この概要の内容</h2>
+        <ul>
+          <li><a href="#continuity-title">仕事を続ける。文脈を引き継ぐ。</a></li>
+          <li><a href="#collaboration-title">AIエージェント間で共有する記憶。</a></li>
+          <li><a href="#reconstruction-title">過去の判断を再構成する。</a></li>
+          <li><a href="#awareness-title">エージェントに状況認識を。</a></li>
+          <li><a href="#shape-title">情報の構造から学ぶ。</a></li>
+          <li><a href="#scenarios-title">エージェントが「もしも？」を探求できるように</a></li>
+          <li><a href="#development-status">開発状況</a></li>
+        </ul>
+      </nav>
+      <div class="overview-body wrap">
+        <section class="overview-section" aria-labelledby="model-title">
+          <h2 id="model-title">知識を、その文脈と履歴につなぐ。</h2>
+          <p>想定するモデルは、記録された知識、判断、出来事、根拠をつなぎます。履歴をたどるビューによって、当時の記録と後から加えられた修正を区別できます。個別とプロジェクトのスコープにより、知識を共有する範囲を明確にします。</p>
+          <p>AtoposDBは、データベースとしての基盤です。情報を解釈して予測を生み出すのは、エージェントとモデルです。データベースは、その作業を確認するために必要な文脈、来歴、結果を保存するよう設計を進めています。</p>
+          <p>人とエージェントが知識を蓄積し、セッションやプロバイダーを越えて引き継ぎ、プロジェクトで共有する。そして、新たな根拠が過去の結論をどう変えるかを確認できます。</p>
+          <p>AtoposDBは、エンジン、統合可能なコンポーネント、そして一体型の共同作業スペースとして開発を進めています。</p>
+        </section>
+        <section class="overview-section" aria-labelledby="continuity-title">
+          <h2 id="continuity-title">仕事を続ける。文脈を引き継ぐ。</h2>
+          <p>記録した知識を、それが生まれた仕事につなぎ、人とエージェントがセッション、チャネル、プロバイダーを越えて引き継げるようにします。経験を再利用できる専門知識へと変える根拠、判断、修正を保存します。</p>
+          <p>役立つ継続性には、記録の出典、スコープ、履歴が含まれます。関連する記憶を検索したときには、それを支える根拠や後から加えられた修正も確認できることを目指します。</p>
+        </section>
+        <section class="overview-section" aria-labelledby="collaboration-title">
+          <h2 id="collaboration-title">AIエージェント間で共有する記憶。</h2>
+          <p>エージェントが必要なプロジェクトの知識にアクセスできるように。個別の記憶とプロジェクトの記憶を区別しながら、文脈、判断、根拠を共有します。</p>
+          <p>知識、判断、根拠をつなぎ、エージェントが共通の理解に基づいて仕事を進められるようにします。</p>
+        </section>
+        <section class="overview-section" aria-labelledby="reconstruction-title">
+          <h2 id="reconstruction-title">過去の判断に至る文脈を再構成する。</h2>
+          <p>以前の仕事を支えた知識、判断、根拠の記録をたどり、当時何がわかっていたかを再構成します。そして、その後に得られた根拠が結論をどう変えたかを確認できます。</p>
+        </section>
+        <section class="overview-section" aria-labelledby="awareness-title">
+          <h2 id="awareness-title">AIエージェントに、必要な状況認識を。</h2>
+          <p>エージェントをプロジェクトの文脈、過去の判断、根拠につなぎ、何が変わったかを理解し、次に何をするかを判断できるようにします。</p>
+        </section>
+        <section class="overview-section" aria-labelledby="shape-title">
+          <h2 id="shape-title">情報の構造から学ぶ。</h2>
+          <p>つながり合う知識とその履歴を対象としたグラフ埋め込みと表現学習を支えるため、AtoposDBを開発しています。関係や出来事のパターンを比較して関連する過去の経験を見つけ、その背景にある文脈と根拠を確認し、何を適用できるかを判断します。</p>
+          <p>グラフ、部分グラフ、履歴の表現を構築して、構造的な類似性の探索、関連事例の検索、つながり合う情報から学ぶモデルの開発に活用します。</p>
+        </section>
+        <section class="overview-section" aria-labelledby="scenarios-title">
+          <h2 id="scenarios-title">エージェントが「もしも？」を探求できるように</h2>
+          <p>エージェントは、記録された経験をもとに、起こり得る未来を探り、選択肢を比較できます。</p>
+          <p>AIによる思考実験、シナリオプランニング、予測モデリングの基盤として、AtoposDBを開発しています。複数のシナリオを、それぞれの前提、過去の文脈、根拠、モデルが生成した結果と結び付けます。シミュレーションの結果と実際に観測された結果を区別しながら可能性を比較し、新たな根拠が得られるたびに予測を見直します。</p>
+          <p>実験の内容を確認・比較し、実際の結果に照らして評価できるように、シナリオの入力、モデルのバージョン、結果を保存します。</p>
+        </section>
+        <details class="message-library">
+          <summary>AtoposDBの根底にある考え方</summary>
+          <p>私たちの開発が目指す成果を、これらのメッセージにまとめました。ご自身のペースでご覧ください。</p>
+          <ul>
+            <li>AIは選べる。知識は引き継げる。</li>
+            <li>エージェント同士の対話を支える。</li>
+            <li>人とAIエージェントのための、ひとつのワークスペース。</li>
+            <li>新たな根拠で、過去の判断を見直す。</li>
+            <li>エージェントに、共通言語を。</li>
+            <li>エージェントが互いの仕事の文脈を理解できるように。</li>
+            <li>仕事を続ける。文脈を引き継ぐ。</li>
+            <li>経験を、再利用できる知識に。</li>
+            <li>判断と根拠を、つないで残す。</li>
+            <li>AIエージェント向けのネイティブ・テンポラルグラフDB。</li>
+            <li>AIエージェントのための記憶。</li>
+            <li>エージェントが、今何が起きているか、何が変わったかを理解できるように。</li>
+            <li>エージェントが「もしも？」を探求できるように</li>
+          </ul>
+        </details>
+      </div>
+      <section class="development wrap section-rule" id="development-status" aria-labelledby="development-title">
+        <div class="section-heading">
+          <p class="eyebrow">開発状況</p>
+          <h2 id="development-title">今、ご覧いただけるもの。</h2>
+        </div>
+        <div class="status-grid">
+          <div><h3>現在公開中</h3><p>製品と技術の概要、ワークフローの例、そして開発の方向性。</p></div>
+          <div><h3>開発中</h3><p>データベースエンジン、統合用コンポーネント、共同作業スペースを開発しています。グラフ表現学習とシナリオを扱うワークフローは、今後の開発の方向性です。</p></div>
+        </div>
+        <p class="status-note">このサイトは、私たちが開発中の製品について紹介しています。エンジンのダウンロードや実行可能なサンプルは、公開できる段階になり次第、ここからご案内します。</p>
+        <a class="text-link" href="https://github.com/LateralThinkingMachine/atoposdb/blob/main/ROADMAP.md">開発ロードマップを読む</a>
+      </section>
+
+      <section class="follow wrap section-rule" aria-labelledby="follow-title">
+        <div><h2 id="follow-title">次の仕事へつながる専門知識を。</h2><p>設計を知り、開発の進捗を追い、検討してほしいユースケースをお聞かせください。</p></div>
+        <div class="follow-actions">
+          <a class="button button-primary" href="https://github.com/LateralThinkingMachine/atoposdb">開発の進捗を見る</a>
+          <a class="text-link" href="/ja/">ホームページに戻る</a>
+          <a class="text-link" href="https://github.com/LateralThinkingMachine/atoposdb/issues">GitHubで質問する</a>
+        </div>
+      </section>
+    </main>
+
+
+    <footer class="site-footer wrap">
+      <a class="footer-brand" href="#top" aria-label="Lateral Thinking Machines、ページの先頭へ"><img class="footer-logo" src="/assets/ltm-logo-monochrome.svg" width="155" height="58" alt=""></a>
+      <p>© 2026 Lateral Thinking Machines</p>
+      <a href="/ja/overview/">技術概要</a>
+      <a href="https://github.com/LateralThinkingMachine">GitHub</a>
+    </footer>
+  </body>
+</html>

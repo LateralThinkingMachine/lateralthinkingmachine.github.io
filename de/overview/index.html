@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+    <title>AtoposDB — Technischer Überblick</title>
+    <meta name="description" content="Erkunden Sie AtoposDBs vorgesehenes temporales Graphmodell, gemeinsames Agentengedächtnis, die Historie von Belegen, Graphrepräsentationen und Szenario-Workflows.">
+    <link rel="canonical" href="https://lateralthinkingmachines.ai/de/overview/">
+    <link rel="alternate" hreflang="en" href="https://lateralthinkingmachines.ai/overview/">
+    <link rel="alternate" hreflang="ja" href="https://lateralthinkingmachines.ai/ja/overview/">
+    <link rel="alternate" hreflang="zh-Hans" href="https://lateralthinkingmachines.ai/zh-hans/overview/">
+    <link rel="alternate" hreflang="ko" href="https://lateralthinkingmachines.ai/ko/overview/">
+    <link rel="alternate" hreflang="es" href="https://lateralthinkingmachines.ai/es/overview/">
+    <link rel="alternate" hreflang="fr" href="https://lateralthinkingmachines.ai/fr/overview/">
+    <link rel="alternate" hreflang="de" href="https://lateralthinkingmachines.ai/de/overview/">
+    <link rel="alternate" hreflang="pt-BR" href="https://lateralthinkingmachines.ai/pt-br/overview/">
+    <link rel="alternate" hreflang="x-default" href="https://lateralthinkingmachines.ai/overview/">
+    <meta property="og:locale" content="de_DE">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Lateral Thinking Machines">
+    <meta property="og:title" content="AtoposDB — Technischer Überblick">
+    <meta property="og:description" content="Erkunden Sie AtoposDBs vorgesehenes temporales Graphmodell, gemeinsames Agentengedächtnis, die Historie von Belegen, Graphrepräsentationen und Szenario-Workflows.">
+    <meta property="og:url" content="https://lateralthinkingmachines.ai/de/overview/">
+    <meta property="og:image" content="https://lateralthinkingmachines.ai/assets/ltm-banner-6000x2000.png">
+    <meta property="og:image:alt" content="Lateral Thinking Machines — Infrastruktur für Langzeitgedächtnis und Kontext von KI-Agenten">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AtoposDB — Technischer Überblick">
+    <meta name="twitter:description" content="Erkunden Sie AtoposDBs vorgesehenes temporales Graphmodell, gemeinsames Agentengedächtnis, die Historie von Belegen, Graphrepräsentationen und Szenario-Workflows.">
+    <meta name="twitter:image" content="https://lateralthinkingmachines.ai/assets/ltm-banner-6000x2000.png">
+    <link rel="icon" type="image/png" sizes="1254x1254" href="/favicon-layered-l.png">
+    <link rel="stylesheet" href="/styles.css?v=20261126-grid">
+    <script src="/navigation.js" defer></script>
+    
+  </head>
+  <body id="top">
+    <a class="skip-link" href="#main">Zum Inhalt springen</a>
+    <div class="header-backdrop" aria-hidden="true"></div>
+    <header class="global-header" data-site-header>
+      <details class="header-disclosure menu-disclosure" data-header-panel="menu" name="header-panels">
+        <summary class="header-pill menu-trigger" data-panel-trigger aria-controls="main-menu">
+          <img class="header-logo" src="/assets/ltm-logo-light.svg" width="310" height="116" alt="Lateral Thinking Machines">
+          <svg class="menu-lines" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+          <svg class="menu-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
+          <span class="visually-hidden" data-trigger-label data-open-label="Menü öffnen" data-close-label="Menü schließen">Menü öffnen</span>
+        </summary>
+        <div class="header-panel nav-panel" id="main-menu" data-panel-content>
+          <nav class="menu-links" aria-label="Hauptnavigation">
+            <a class="menu-home" href="/de/" >Startseite</a>
+            <a href="/de/#atoposdb">AtoposDB</a>
+            <a href="/de/#enny">Enny</a>
+            <a href="/de/#why-memory">Warum AtoposDB</a>
+            <a href="/de/overview/" aria-current="page">Technischer Überblick</a>
+            <a class="menu-github" href="https://github.com/LateralThinkingMachine">GitHub</a>
+          </nav>
+          <div class="menu-overview">
+            <div class="menu-intro">
+              <h2>Lateral Thinking Machines</h2>
+              <p>Wir schaffen die Grundlagen dafür, dass Menschen und KI-Agenten nützliches Wissen in ihre nächste Arbeit mitnehmen können.</p>
+            </div>
+            <a class="menu-feature" href="/de/overview/">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14a8 3 0 0 0 16 0V5M4 12a8 3 0 0 0 16 0"/></svg>
+              <div><p class="menu-feature-eyebrow">AtoposDB</p><h3>Aus Erfahrung wird Fachwissen.</h3><p>Bewahren Sie die Belege, Entscheidungen und Korrekturen hinter der fortlaufenden Arbeit von Agenten.</p><span class="menu-feature-link">Technischen Überblick lesen</span></div>
+            </a>
+          </div>
+        </div>
+      </details>
+      <details class="header-disclosure language-disclosure" data-header-panel="languages" name="header-panels">
+        <summary class="header-pill language-trigger" data-panel-trigger aria-controls="language-options">
+          <svg class="globe-icon" width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18M4.5 7.5h15M4.5 16.5h15"/></svg>
+          <svg class="menu-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
+          <span class="visually-hidden" data-trigger-label data-open-label="Sprache auswählen" data-close-label="Sprachauswahl schließen">Sprache auswählen</span>
+        </summary>
+        <section class="header-panel language-panel" id="language-options" data-panel-content aria-labelledby="language-title">
+          <h2 id="language-title">Wählen Sie Ihre Sprache</h2>
+          <p class="language-intro">Dieselbe Arbeit. In Ihrer Sprache.</p>
+          <ul class="language-grid"><li><a href="/overview/" lang="en" hreflang="en"><span class="language-name">English</span><span class="language-detail" lang="en">International</span></a></li>
+            <li><a href="/ja/overview/" lang="ja" hreflang="ja"><span class="language-name">日本語</span><span class="language-detail" lang="en">Japanese</span></a></li>
+            <li><a href="/zh-hans/overview/" lang="zh-Hans" hreflang="zh-Hans"><span class="language-name">简体中文</span><span class="language-detail" lang="en">Simplified Chinese</span></a></li>
+            <li><a href="/ko/overview/" lang="ko" hreflang="ko"><span class="language-name">한국어</span><span class="language-detail" lang="en">Korean</span></a></li>
+            <li><a href="/es/overview/" lang="es" hreflang="es"><span class="language-name">Español</span><span class="language-detail" lang="en">Spanish</span></a></li>
+            <li><a href="/fr/overview/" lang="fr" hreflang="fr"><span class="language-name">Français</span><span class="language-detail" lang="en">French</span></a></li>
+            <li><a href="/de/overview/" lang="de" hreflang="de" aria-current="page"><span class="language-name">Deutsch</span><span class="language-detail" lang="en">German</span><span class="language-current" lang="de">Aktuelle Sprache</span></a></li>
+            <li><a href="/pt-br/overview/" lang="pt-BR" hreflang="pt-BR"><span class="language-name">Português</span><span class="language-detail" lang="pt-BR">Brasil</span></a></li></ul>
+        </section>
+      </details>
+    </header>
+
+    <main id="main" class="overview-main">
+      <header class="overview-heading wrap">
+        <a class="text-link" href="/de/">Zurück zur Startseite</a>
+        <p class="eyebrow">Technischer Überblick</p>
+        <h1>Eine Datenbank für Wissen, das sich weiterentwickelt.</h1>
+        <p>AtoposDB wird als native temporale Graphdatenbank für die Entwicklung von KI-Gedächtnissystemen entwickelt. Dieser Überblick erklärt das vorgesehene Modell und die geplanten Abläufe und unterscheidet Entwicklungsrichtungen von öffentlich verfügbaren Angeboten.</p>
+      </header>
+      <nav class="overview-toc wrap" aria-label="In diesem Überblick">
+        <h2>In diesem Überblick</h2>
+        <ul>
+          <li><a href="#continuity-title">Setzen Sie die Arbeit fort. Bewahren Sie den Kontext.</a></li>
+          <li><a href="#collaboration-title">Gemeinsames Gedächtnis für KI-Agenten.</a></li>
+          <li><a href="#reconstruction-title">Rekonstruieren Sie frühere Entscheidungen.</a></li>
+          <li><a href="#awareness-title">Geben Sie Agenten Situationsverständnis.</a></li>
+          <li><a href="#shape-title">Lernen Sie aus der Struktur von Informationen.</a></li>
+          <li><a href="#scenarios-title">Helfen Sie Ihren Agenten, der Frage nachzugehen: „Was wäre, wenn …?“</a></li>
+          <li><a href="#development-status">Entwicklungsstand</a></li>
+        </ul>
+      </nav>
+      <div class="overview-body wrap">
+        <section class="overview-section" aria-labelledby="model-title">
+          <h2 id="model-title">Verknüpfen Sie Wissen mit seinem Kontext und seiner Historie.</h2>
+          <p>Das vorgesehene Modell verbindet aufgezeichnetes Wissen, Entscheidungen, Ereignisse und Belege. Historische Ansichten helfen dabei, damalige Aufzeichnungen von späteren Korrekturen zu unterscheiden. Individuelle und projektbezogene Geltungsbereiche machen die Freigabe von Wissen explizit.</p>
+          <p>AtoposDB bildet die Datenbankgrundlage. Agenten und Modelle interpretieren Informationen und erstellen Vorhersagen; die Datenbank wird so konzipiert, dass sie den Kontext, die Herkunft und die Ergebnisse bewahrt, die zur Prüfung dieser Arbeit nötig sind.</p>
+          <p>Menschen und Agenten können Wissen aufbauen, es über Sitzungen und Anbieter hinweg mitnehmen, in einem Projekt teilen und nachvollziehen, wie spätere Belege frühere Schlussfolgerungen verändern.</p>
+          <p>Wir entwickeln AtoposDB als Engine, als integrierbare Komponenten und als vollständigen Arbeitsbereich für die Zusammenarbeit.</p>
+        </section>
+        <section class="overview-section" aria-labelledby="continuity-title">
+          <h2 id="continuity-title">Setzen Sie die Arbeit fort. Bewahren Sie den Kontext.</h2>
+          <p>Verknüpfen Sie aufgezeichnetes Wissen mit der Arbeit, aus der es entstanden ist, damit Menschen und Agenten sie über Sitzungen, Kanäle und Anbieter hinweg fortsetzen können. Bewahren Sie die Belege, Entscheidungen und Korrekturen, die Erfahrung in wiederverwendbares Fachwissen verwandeln.</p>
+          <p>Nützliche Kontinuität umfasst die Quelle, den Geltungsbereich und die Historie eines Datensatzes. Wenn ein zugehöriger Gedächtniseintrag abgerufen wird, sollten auch seine Belege und spätere Korrekturen einsehbar sein.</p>
+        </section>
+        <section class="overview-section" aria-labelledby="collaboration-title">
+          <h2 id="collaboration-title">Gemeinsames Gedächtnis für KI-Agenten.</h2>
+          <p>Geben Sie Agenten Zugriff auf das Projektwissen, das sie benötigen. Teilen Sie Kontext, Entscheidungen und Belege, während individuelles Gedächtnis und Projektgedächtnis klar voneinander abgegrenzt bleiben.</p>
+          <p>Verknüpfen Sie Wissen, Entscheidungen und Belege, damit Agenten auf Grundlage eines gemeinsamen Verständnisses arbeiten können.</p>
+        </section>
+        <section class="overview-section" aria-labelledby="reconstruction-title">
+          <h2 id="reconstruction-title">Rekonstruieren Sie den Kontext früherer Entscheidungen.</h2>
+          <p>Vollziehen Sie anhand der Aufzeichnungen nach, welches Wissen, welche Entscheidungen und welche Belege früheren Arbeiten zugrunde lagen. Rekonstruieren Sie den damaligen Wissensstand und untersuchen Sie, wie spätere Belege die Schlussfolgerungen verändert haben.</p>
+        </section>
+        <section class="overview-section" aria-labelledby="awareness-title">
+          <h2 id="awareness-title">Geben Sie Ihren KI-Agenten das Situationsverständnis, das sie brauchen.</h2>
+          <p>Verbinden Sie Agenten mit dem Projektkontext, früheren Entscheidungen und Belegen, damit sie verstehen, was sich verändert hat, und entscheiden können, was als Nächstes zu tun ist.</p>
+        </section>
+        <section class="overview-section" aria-labelledby="shape-title">
+          <h2 id="shape-title">Lernen Sie aus der Struktur von Informationen.</h2>
+          <p>Wir entwickeln AtoposDB, um Graph-Embeddings und Repräsentationslernen auf Basis verknüpften Wissens und seiner Historie zu ermöglichen. Vergleichen Sie Muster in Beziehungen und Ereignissen, um relevante frühere Erfahrungen zu finden. Prüfen Sie anschließend den zugrunde liegenden Kontext und die Belege, um zu entscheiden, was auf die aktuelle Situation anwendbar ist.</p>
+          <p>Erstellen Sie Repräsentationen von Graphen, Teilgraphen und Historien, um strukturelle Ähnlichkeiten zu untersuchen, verwandte Fälle abzurufen und Modelle zu entwickeln, die aus verknüpften Informationen lernen.</p>
+        </section>
+        <section class="overview-section" aria-labelledby="scenarios-title">
+          <h2 id="scenarios-title">Helfen Sie Ihren Agenten, der Frage nachzugehen: „Was wäre, wenn …?“</h2>
+          <p>Agenten können aufgezeichnete Erfahrungen nutzen, um mögliche zukünftige Entwicklungen zu erkunden und Optionen zu vergleichen.</p>
+          <p>Wir entwickeln AtoposDB als Grundlage für KI-Gedankenexperimente, Szenarioplanung und prädiktive Modellierung. Verknüpfen Sie alternative Szenarien mit ihren Annahmen, ihrem historischen Kontext, Belegen und modellgenerierten Ergebnissen. Vergleichen Sie Möglichkeiten und halten Sie dabei simulierte Ergebnisse klar von beobachteten Ergebnissen getrennt. Überprüfen Sie Vorhersagen erneut, sobald neue Belege vorliegen.</p>
+          <p>Bewahren Sie die Eingabedaten der Szenarien, die Modellversionen und die Ergebnisse auf, damit Experimente untersucht, verglichen und anhand realer Ergebnisse bewertet werden können.</p>
+        </section>
+        <details class="message-library">
+          <summary>Die Ideen hinter AtoposDB</summary>
+          <p>Diese Botschaften beschreiben die Ziele, an denen sich unsere Arbeit orientiert. Erkunden Sie sie in Ihrem eigenen Tempo.</p>
+          <ul>
+            <li>Nutzen Sie Ihre eigene KI. Behalten Sie Ihr Wissen.</li>
+            <li>Helfen Sie Agenten, miteinander zu kommunizieren.</li>
+            <li>Ein Arbeitsbereich für Menschen und KI-Agenten.</li>
+            <li>Überprüfen Sie frühere Entscheidungen anhand neuer Belege.</li>
+            <li>Geben Sie Ihren Agenten eine gemeinsame Sprache.</li>
+            <li>Helfen Sie Agenten, den Kontext anderer Agenten zu verstehen.</li>
+            <li>Setzen Sie die Arbeit fort. Bewahren Sie den Kontext.</li>
+            <li>Machen Sie aus Erfahrung wiederverwendbares Wissen.</li>
+            <li>Verknüpfen Sie Entscheidungen mit ihren Belegen.</li>
+            <li>Eine native temporale Graphdatenbank für KI-Agenten.</li>
+            <li>Gedächtnis für KI-Agenten.</li>
+            <li>Helfen Sie Ihren Agenten zu verstehen, was gerade geschieht – und was sich verändert hat.</li>
+            <li>Helfen Sie Ihren Agenten, der Frage nachzugehen: „Was wäre, wenn …?“</li>
+          </ul>
+        </details>
+      </div>
+      <section class="development wrap section-rule" id="development-status" aria-labelledby="development-title">
+        <div class="section-heading">
+          <p class="eyebrow">Entwicklungsstand</p>
+          <h2 id="development-title">Was Sie heute erkunden können.</h2>
+        </div>
+        <div class="status-grid">
+          <div><h3>Öffentlich verfügbar</h3><p>Ein Produkt- und Techniküberblick, ein beispielhafter Arbeitsablauf und unsere Entwicklungsrichtungen.</p></div>
+          <div><h3>In Entwicklung</h3><p>Die Datenbank-Engine, Integrationskomponenten und der Arbeitsbereich für die Zusammenarbeit. Graph-Repräsentationslernen und Szenario-Workflows sind Entwicklungsrichtungen.</p></div>
+        </div>
+        <p class="status-note">Diese Website beschreibt das Produkt, das wir entwickeln. Öffentliche Engine-Downloads und ausführbare Beispiele werden hier verlinkt, sobald sie verfügbar sind.</p>
+        <a class="text-link" href="https://github.com/LateralThinkingMachine/atoposdb/blob/main/ROADMAP.md">Entwicklungsroadmap lesen</a>
+      </section>
+
+      <section class="follow wrap section-rule" aria-labelledby="follow-title">
+        <div><h2 id="follow-title">Bauen Sie Fachwissen auf, das Sie weiterbringt.</h2><p>Erkunden Sie den Entwurf, verfolgen Sie seine Entwicklung oder teilen Sie einen Anwendungsfall, den wir berücksichtigen sollen.</p></div>
+        <div class="follow-actions">
+          <a class="button button-primary" href="https://github.com/LateralThinkingMachine/atoposdb">Entwicklung verfolgen</a>
+          <a class="text-link" href="/de/">Zurück zur Startseite</a>
+          <a class="text-link" href="https://github.com/LateralThinkingMachine/atoposdb/issues">Eine Frage auf GitHub stellen</a>
+        </div>
+      </section>
+    </main>
+
+
+    <footer class="site-footer wrap">
+      <a class="footer-brand" href="#top" aria-label="Lateral Thinking Machines, nach oben"><img class="footer-logo" src="/assets/ltm-logo-monochrome.svg" width="155" height="58" alt=""></a>
+      <p>© 2026 Lateral Thinking Machines</p>
+      <a href="/de/overview/">Technischer Überblick</a>
+      <a href="https://github.com/LateralThinkingMachine">GitHub</a>
+    </footer>
+  </body>
+</html>

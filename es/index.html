@@ -29,7 +29,7 @@
     <meta name="twitter:description" content="Continúa el trabajo entre sesiones, canales y proveedores. Conserva pruebas, decisiones y correcciones para convertir la experiencia en conocimiento especializado reutilizable.">
     <meta name="twitter:image" content="https://lateralthinkingmachines.ai/assets/ltm-banner-6000x2000.png">
     <link rel="icon" type="image/png" sizes="1254x1254" href="/favicon-layered-l.png">
-    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/styles.css?v=20261126-grid">
     <script src="/navigation.js" defer></script>
     <script src="/enny.js" defer></script>
     <script src="/headline.js" defer></script>
@@ -47,10 +47,11 @@
         </summary>
         <div class="header-panel nav-panel" id="main-menu" data-panel-content>
           <nav class="menu-links" aria-label="Navegación principal">
-            <a class="menu-home" href="#top" aria-current="page">Inicio</a>
-            <a href="#atoposdb">AtoposDB</a>
-            <a href="#enny">Enny</a>
-            <a href="#why-memory">Por qué AtoposDB</a>
+            <a class="menu-home" href="/es/" aria-current="page">Inicio</a>
+            <a href="/es/#atoposdb">AtoposDB</a>
+            <a href="/es/#enny">Enny</a>
+            <a href="/es/#why-memory">Por qué AtoposDB</a>
+            <a href="/es/overview/" >Resumen técnico</a>
             <a class="menu-github" href="https://github.com/LateralThinkingMachine">GitHub</a>
           </nav>
           <div class="menu-overview">
@@ -58,9 +59,9 @@
               <h2>Lateral Thinking Machines</h2>
               <p>Estamos creando las bases para que las personas y los agentes de IA puedan llevar el conocimiento útil a su siguiente tarea.</p>
             </div>
-            <a class="menu-feature" href="#work">
+            <a class="menu-feature" href="/es/overview/">
               <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14a8 3 0 0 0 16 0V5M4 12a8 3 0 0 0 16 0"/></svg>
-              <div><p class="menu-feature-eyebrow">AtoposDB</p><h3>La experiencia se convierte en conocimiento especializado.</h3><p>Conserva las pruebas, decisiones y correcciones que sustentan el trabajo continuo de los agentes.</p><span class="menu-feature-link">Explora nuestro trabajo</span></div>
+              <div><p class="menu-feature-eyebrow">AtoposDB</p><h3>La experiencia se convierte en conocimiento especializado.</h3><p>Conserva las pruebas, decisiones y correcciones que sustentan el trabajo continuo de los agentes.</p><span class="menu-feature-link">Lee el resumen técnico</span></div>
             </a>
           </div>
         </div>
@@ -118,7 +119,7 @@
             <p class="eyebrow">AtoposDB · Base de datos diseñada para la ingeniería de memoria para IA</p>
           </div>
           <h1 id="hero-title" class="rotating-headline" data-headline>
-            <span class="visually-hidden">Trae tu propia IA. Conserva tu conocimiento. Ayuda a los agentes a comunicarse entre sí. Un espacio de trabajo para personas y agentes de IA. Revisa decisiones pasadas con nuevas pruebas. Dales a tus agentes un lenguaje común. Ayuda a cada agente a entender el contexto de los demás. Continúa el trabajo. Conserva el contexto. Convierte la experiencia en conocimiento reutilizable. Mantén las decisiones vinculadas a las pruebas que las sustentan. Una base de datos nativa de grafos temporales para agentes de IA. Memoria para agentes de IA. Ayuda a tus agentes a entender qué está pasando y qué ha cambiado. Ayuda a tus agentes a explorar «¿y si…?»</span>
+            <span class="visually-hidden">AtoposDB — Una base de datos para la ingeniería de memoria para IA.</span>
             <span class="headline-message" data-active aria-hidden="true">Trae tu propia IA. Conserva tu conocimiento.</span>
             <span class="headline-message" aria-hidden="true">Ayuda a los agentes a comunicarse entre sí.</span>
             <span class="headline-message" aria-hidden="true">Un espacio de trabajo para personas y agentes de IA.</span>
@@ -133,45 +134,11 @@
             <span class="headline-message" aria-hidden="true">Ayuda a tus agentes a entender qué está pasando y qué ha cambiado.</span>
             <span class="headline-message" aria-hidden="true">Ayuda a tus agentes a explorar «¿y si…?»</span>
           </h1>
-          <p class="hero-description">Estamos desarrollando AtoposDB para que las personas y los agentes de IA puedan continuar su trabajo entre sesiones, canales y proveedores, conservando pruebas, decisiones y correcciones que convierten la experiencia en conocimiento especializado reutilizable.</p>
+          <p class="hero-description">Estamos desarrollando una base de datos nativa de grafos temporales para la ingeniería de memoria para IA. Conserva conocimiento, reconstruye decisiones pasadas y comparte contexto entre agentes, sesiones y proveedores.</p>
           <div class="hero-actions">
-            <a class="button button-primary" href="#work">Explora AtoposDB</a>
-            <a class="text-link" href="https://github.com/LateralThinkingMachine">Encuéntranos en GitHub</a>
+            <a class="button button-primary" href="/es/overview/">Lee el resumen técnico</a>
+            <a class="text-link" href="https://github.com/LateralThinkingMachine/atoposdb">Sigue el desarrollo</a>
           </div>
-        </div>
-      </section>
-
-      <section class="philosophy wrap section-rule" id="why-memory" aria-labelledby="why-title">
-        <p class="eyebrow section-label">De la experiencia al conocimiento especializado</p>
-        <div class="philosophy-copy">
-          <h2 id="why-title">Conserva las pruebas que sustentan el conocimiento especializado.</h2>
-          <p>Las personas y los agentes pueden construir conocimiento, llevarlo de una sesión o proveedor a otro, compartirlo con un proyecto y examinar cómo las nuevas pruebas cambian las conclusiones anteriores.</p>
-          <p>AtoposDB conserva lo que los agentes sabían, lo que decidieron y lo que ocurrió después, para que el conocimiento pueda corregirse, compararse y reutilizarse.</p>
-          <p>Estamos desarrollando AtoposDB como motor, componentes integrables y un espacio de trabajo colaborativo completo.</p>
-          <section class="philosophy-detail" aria-labelledby="shape-title">
-            <h3 id="shape-title">Aprende de la estructura de la información.</h3>
-            <p>Estamos desarrollando AtoposDB para que admita embeddings de grafos y aprendizaje de representaciones a partir de conocimiento conectado y su historial. Compara patrones en relaciones y eventos para encontrar experiencias anteriores relevantes; después, examina el contexto y las pruebas subyacentes para decidir qué resulta aplicable.</p>
-            <p>Crea representaciones de grafos, subgrafos e historiales para explorar similitudes estructurales, recuperar casos relacionados y desarrollar modelos que aprendan de información conectada.</p>
-          </section>
-          <section class="philosophy-detail" aria-labelledby="reconstruction-title">
-            <h3 id="reconstruction-title">Reconstruye el contexto de las decisiones pasadas.</h3>
-            <p>Rastrea el conocimiento, las decisiones y las pruebas registrados durante trabajos anteriores. Reconstruye lo que se sabía en aquel momento y examina cómo las pruebas posteriores cambiaron las conclusiones.</p>
-          </section>
-          <section class="philosophy-detail" aria-labelledby="awareness-title">
-            <h3 id="awareness-title">Dales a tus agentes de IA la conciencia situacional que necesitan.</h3>
-            <p>Conecta a los agentes con el contexto del proyecto, las decisiones pasadas y las pruebas que les ayudan a entender qué ha cambiado y a decidir qué hacer a continuación.</p>
-          </section>
-          <section class="philosophy-detail" aria-labelledby="scenarios-title">
-            <h3 id="scenarios-title">Ayuda a tus agentes a explorar «¿y si…?»</h3>
-            <p>Los agentes pueden utilizar la experiencia registrada para explorar futuros posibles y comparar opciones.</p>
-            <p>Estamos desarrollando AtoposDB como base para experimentos mentales con IA, planificación de escenarios y modelado predictivo. Vincula los escenarios alternativos con sus supuestos, contexto histórico, pruebas y resultados generados por modelos. Compara posibilidades manteniendo diferenciados los resultados simulados de los observados y revisa las predicciones a medida que lleguen nuevas pruebas.</p>
-            <p>Conserva los datos de entrada de los escenarios, las versiones de los modelos y los resultados para que los experimentos puedan examinarse, compararse y evaluarse frente a resultados reales.</p>
-          </section>
-          <section class="philosophy-detail collaboration" aria-labelledby="collaboration-title">
-            <h3 id="collaboration-title">Memoria compartida para agentes de IA.</h3>
-            <p>Da a los agentes acceso al conocimiento del proyecto que necesitan. Comparte contexto, decisiones y pruebas, manteniendo diferenciadas la memoria individual y la del proyecto.</p>
-            <p>Conecta conocimiento, decisiones y pruebas para que los agentes puedan trabajar a partir de una comprensión común.</p>
-          </section>
         </div>
       </section>
 
@@ -179,6 +146,7 @@
         <div class="section-heading">
           <p class="eyebrow">Nuestro trabajo</p>
           <h2 id="work-title">Lo que estamos creando</h2>
+          <p class="section-intro">Lateral Thinking Machines es la organización detrás de AtoposDB, nuestra base de datos, y de Enny, nuestra mascota y el compañero de memoria que planeamos desarrollar.</p>
         </div>
         <div class="products">
           <article class="product" id="atoposdb" aria-labelledby="atoposdb-title">
@@ -196,21 +164,94 @@
         </div>
       </section>
 
-      <section class="follow wrap section-rule" aria-labelledby="follow-title">
-        <div>
-          <h2 id="follow-title">Desarrolla conocimiento especializado que perdure.</h2>
-          <p>Consérvalo entre sesiones, compártelo entre proyectos y mejóralo con pruebas de resultados reales. Sigue nuestro desarrollo en GitHub.</p>
+      <section class="example wrap section-rule" id="example" aria-labelledby="example-title">
+        <div class="section-heading">
+          <p class="eyebrow">Un flujo de trabajo ilustrativo</p>
+          <h2 id="example-title">Una decisión. Un historial que puedes examinar.</h2>
+          <p class="section-intro">Imagina que dos agentes preparan el lanzamiento de un software. Este ejemplo explica el flujo de trabajo previsto; no es una demostración de un producto en funcionamiento.</p>
         </div>
-        <a class="button button-secondary" href="https://github.com/LateralThinkingMachine">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .9a11.1 11.1 0 0 0-3.51 21.63c.55.1.76-.24.76-.53v-2.05c-3.1.67-3.76-1.31-3.76-1.31-.5-1.28-1.24-1.62-1.24-1.62-1.01-.69.08-.68.08-.68 1.12.08 1.7 1.15 1.7 1.15 1 1.7 2.6 1.21 3.24.93.1-.72.39-1.21.7-1.49-2.48-.28-5.08-1.24-5.08-5.52 0-1.22.43-2.21 1.15-2.99-.11-.28-.5-1.41.11-2.94 0 0 .94-.3 3.06 1.14A10.6 10.6 0 0 1 12 6.25c.94 0 1.88.13 2.77.37 2.12-1.44 3.05-1.14 3.05-1.14.61 1.53.23 2.66.11 2.94.72.78 1.15 1.77 1.15 2.99 0 4.3-2.61 5.24-5.1 5.51.4.35.76 1.02.76 2.06V22c0 .3.2.64.77.53A11.1 11.1 0 0 0 12 .9Z"/></svg>
-          Encuéntranos en GitHub
-        </a>
+        <ol class="workflow">
+          <li><h3>Registra la decisión</h3><p>Un agente recomienda lanzar el viernes porque las pruebas se han superado. Mantén la recomendación vinculada a los resultados de las pruebas y al contexto del proyecto.</p></li>
+          <li><h3>Vincula nuevas pruebas</h3><p>Otro agente detecta una regresión. Registra las nuevas pruebas y la recomendación revisada, conservando la decisión anterior y su justificación.</p></li>
+          <li><h3>Compara los posibles siguientes pasos</h3><p>Explora la posibilidad de lanzar el software con una corrección o de retrasar el lanzamiento. Mantén los supuestos y los resultados generados por modelos de cada escenario separados de los resultados observados en las pruebas.</p></li>
+          <li><h3>Aprende de lo que ocurre</h3><p>Después del lanzamiento, compara las predicciones registradas con los resultados reales. Lleva las pruebas y las correcciones a la siguiente sesión o proyecto.</p></li>
+        </ol>
+      </section>
+
+      <section class="capabilities wrap section-rule" id="why-memory" aria-labelledby="why-title">
+        <div class="section-heading">
+          <p class="eyebrow">De la experiencia al conocimiento especializado</p>
+          <h2 id="why-title">Por qué AtoposDB</h2>
+          <p class="section-intro">Seis formas en que estamos diseñando AtoposDB para conectar la experiencia útil con el trabajo que viene.</p>
+        </div>
+        <div class="capability-grid">
+          <a class="capability-card" aria-labelledby="continuity-title" href="/es/overview/#continuity-title">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 7v5h-5M4 17v-5h5"/><path d="M5.5 7a7 7 0 0 1 11.6-2L20 8M4 16l2.9 3A7 7 0 0 0 18.5 17"/></svg>
+            <h3 id="continuity-title">Continúa el trabajo. Conserva el contexto.</h3>
+            <p>Lleva el conocimiento registrado de una sesión o proveedor a otro, manteniendo vinculado el contexto del trabajo anterior.</p>
+            <span class="card-link">Leer más</span>
+          </a>
+          <a class="capability-card" aria-labelledby="collaboration-title" href="/es/overview/#collaboration-title">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="5" cy="12" r="3"/><circle cx="19" cy="5" r="3"/><circle cx="19" cy="19" r="3"/><path d="m8 11 8-5m-8 7 8 5"/></svg>
+            <h3 id="collaboration-title">Memoria compartida para agentes de IA.</h3>
+            <p>Da a los agentes un contexto de proyecto común, manteniendo diferenciadas la memoria individual y la del proyecto.</p>
+            <span class="card-link">Leer más</span>
+          </a>
+          <a class="capability-card" aria-labelledby="reconstruction-title" href="/es/overview/#reconstruction-title">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v5h5M3.5 8a9 9 0 1 1 0 8"/><path d="M12 7v5l3 2"/></svg>
+            <h3 id="reconstruction-title">Reconstruye decisiones pasadas.</h3>
+            <p>Rastrea el conocimiento y las pruebas que sustentan una decisión, incluidas las correcciones posteriores.</p>
+            <span class="card-link">Leer más</span>
+          </a>
+          <a class="capability-card" aria-labelledby="awareness-title" href="/es/overview/#awareness-title">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 1v4m0 14v4M1 12h4m14 0h4"/><circle cx="12" cy="12" r="2"/></svg>
+            <h3 id="awareness-title">Da conciencia situacional a los agentes.</h3>
+            <p>Conecta el contexto actual del proyecto con decisiones pasadas para que los agentes puedan entender qué ha cambiado y considerar los próximos pasos.</p>
+            <span class="card-link">Leer más</span>
+          </a>
+          <a class="capability-card" aria-labelledby="shape-title" href="/es/overview/#shape-title">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="5" cy="5" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="12" cy="19" r="2"/><path d="M7 5h10M6 7l5 10m7-10-5 10"/></svg>
+            <h3 id="shape-title">Aprende de la estructura de la información.</h3>
+            <p>Explora las representaciones de grafos previstas para comparar patrones conectados y encontrar experiencias anteriores relevantes.</p>
+            <span class="card-link">Leer más</span>
+          </a>
+          <a class="capability-card" aria-labelledby="scenarios-title" href="/es/overview/#scenarios-title">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20v-7c0-5-7-4-7-9m7 9c0-5 7-4 7-9M2 7l3-3 3 3m8 0 3-3 3 3"/></svg>
+            <h3 id="scenarios-title">Ayuda a tus agentes a explorar «¿y si…?»</h3>
+            <p>Vincula escenarios alternativos con supuestos y pruebas. Compara los resultados simulados con lo que ocurre realmente.</p>
+            <span class="card-link">Leer más</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="development wrap section-rule" id="development-status" aria-labelledby="development-title">
+        <div class="section-heading">
+          <p class="eyebrow">Estado del desarrollo</p>
+          <h2 id="development-title">Lo que puedes explorar hoy.</h2>
+        </div>
+        <div class="status-grid">
+          <div><h3>Disponible públicamente</h3><p>Un resumen del producto y sus aspectos técnicos, un flujo de trabajo ilustrativo y nuestras líneas de desarrollo.</p></div>
+          <div><h3>En desarrollo</h3><p>El motor de base de datos, los componentes de integración y el espacio de trabajo colaborativo. El aprendizaje de representaciones de grafos y los flujos de trabajo con escenarios son líneas de desarrollo.</p></div>
+        </div>
+        <p class="status-note">Este sitio describe el producto que estamos desarrollando. Enlazaremos aquí las descargas públicas del motor y los ejemplos ejecutables cuando estén disponibles.</p>
+        <a class="text-link" href="https://github.com/LateralThinkingMachine/atoposdb/blob/main/ROADMAP.md">Lee la hoja de ruta de desarrollo</a>
+      </section>
+
+      <section class="follow wrap section-rule" aria-labelledby="follow-title">
+        <div><h2 id="follow-title">Desarrolla conocimiento especializado que perdure.</h2><p>Explora el diseño, sigue su desarrollo o comparte un caso de uso que quieras que consideremos.</p></div>
+        <div class="follow-actions">
+          <a class="button button-primary" href="/es/overview/">Lee el resumen técnico</a>
+          <a class="text-link" href="https://github.com/LateralThinkingMachine/atoposdb">Sigue el desarrollo</a>
+          <a class="text-link" href="https://github.com/LateralThinkingMachine/atoposdb/issues">Haz una pregunta en GitHub</a>
+        </div>
       </section>
     </main>
+
 
     <footer class="site-footer wrap">
       <a class="footer-brand" href="#top" aria-label="Lateral Thinking Machines, volver arriba"><img class="footer-logo" src="/assets/ltm-logo-monochrome.svg" width="155" height="58" alt=""></a>
       <p>© 2026 Lateral Thinking Machines</p>
+      <a href="/es/overview/">Resumen técnico</a>
       <a href="https://github.com/LateralThinkingMachine">GitHub</a>
     </footer>
   </body>

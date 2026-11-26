@@ -27,7 +27,9 @@ python3 -m http.server 8767 --bind 127.0.0.1
 
 Open `http://127.0.0.1:8767`. Check desktop and mobile layouts, keyboard focus, navigation, local assets, and the 404 page before publishing. Product copy presents work in progress; only add product documentation, downloads, or capability claims when their public destinations and availability are verified.
 
-The supplied original 6000 × 2000 banner is retained in `assets/` for social previews. The page itself uses native text and inline vector icons. Lucide's database and orbit icons retain the [upstream license notices](assets/LUCIDE-LICENSE.txt).
+The supplied original 6000 × 2000 banner is retained in `assets/` for social previews. The page itself uses native text and inline vector icons. Lucide icons retain the [upstream license notices](assets/LUCIDE-LICENSE.txt). The six capability icons use `refresh-cw`, `users-round`, `rotate-ccw` (with clock hands added), `radar`, `network`, and `git-fork` from [Lucide at commit 7af21af](https://github.com/lucide-icons/lucide/tree/7af21af58076e03a903bdea89b39e79f9b500d6b/icons). Each renders at its native 24-pixel size with a consistent two-pixel stroke and the same ink color as the headings.
+
+The expanded navigation and footer link to `https://x.com/atoposdb` beside GitHub on all sixteen pages. The monochrome [X vector from Simple Icons](https://github.com/simple-icons/simple-icons/blob/develop/icons/x.svg) is distributed under [CC0](https://github.com/simple-icons/simple-icons/blob/develop/LICENSE.md). Each link has a translated accessible label, a native title tooltip, keyboard focus styling, and a 44 × 44 pixel hit area. Both social links stay together in the footer.
 
 The footer uses [`assets/ltm-logo-monochrome.svg`](assets/ltm-logo-monochrome.svg), a vector interpretation of the supplied brand sheet's monochrome logo: three overlapping rounded tiles with white separation lines and a rounded lowercase `ltm` wordmark, in a single navy ink. The SVG remains sharp at any resolution, and CSS preserves the lockup's proportions. Keep logo edits in the SVG source; the full-color social-preview banner is a separate supplied asset.
 
